@@ -1,0 +1,55 @@
+# !bin/bash
+
+f_aws_public_ip() {
+        eval "aws ec2 describe-instances --filters 'Name=tag:Name,Values=$1*' --output text --query 'Reservations[*].Instances[*].PublicIpAddress' "
+}
+
+f_aws_private_ip() {
+        eval "aws ec2 describe-instances --filters 'Name=tag:Name,Values=$1*' --output text --query 'Reservations[*].Instances[*].PrivateIpAddress' "
+}
+
+f_aws_instance_id() {
+        eval "aws ec2 describe-instances --filters 'Name=tag:Name,Values=$1*' --output text --query 'Reservations[].Instances[].[InstanceId, Tags[?Key==\`Name\`]| [0].Value]' "
+}
+
+f_aws_list_instances(){
+        eval "aws ec2 describe-instances --filters 'Name=tag:Name,Values=$1*' --query 'Reservations[].Instances[].[InstanceId,PublicIpAddress,PrivateIpAddress,Tags[?Key==\`Name\`]| [0].Value]' --output table "
+}
+
+f_aws_delete_instance_profile(){
+        eval "aws iam delete-instance-profile --instance-profile-name $1"
+}
+
+f_aws_ssh() {
+        jumpbox_name="$1-jumpbox"
+        profile="$1"
+        IP=$(f_aws_public_ip "$jumpbox_name" "$profile")
+        ssh $IP
+}
+
+f_kgs(){
+        kubectl get secret "$1" -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+}
+
+f_kpf(){
+        POD=$1
+        PORT=$2
+        NS=${3+"--namespace=$3"}
+
+        COMMAND="k port-forward $POD $PORT:$PORT $NS"
+        echo "EXECUTING::::>>>>> $COMMAND"
+        eval $COMMAND
+
+        echo "connection DIED! executing again!!!!!"
+        f_kpf $1 $2 $3
+}
+
+###
+## jump to folder and start virtual env
+###
+jump_and_venv(){
+  j $1
+  APP_NAME=`basename "$PWD"`&& source ~/.virtualenv/$APP_NAME/bin/activate
+}
+#
+

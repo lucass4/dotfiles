@@ -1,0 +1,38 @@
+# !bin/bash
+
+f_aws_public_ip() {
+        eval "aws ec2 describe-instances --filters 'Name=tag:Name,Values=$1*' --output text --query 'Reservations[*].Instances[*].PublicIpAddress' --profile $2"
+}
+
+f_aws_private_ip() {
+        eval "aws ec2 describe-instances --filters 'Name=tag:Name,Values=$1*' --output text --query 'Reservations[*].Instances[*].PrivateIpAddress' --profile $2"
+}
+
+f_aws_instance_id() {
+        eval "aws ec2 describe-instances --filters 'Name=tag:Name,Values=$1*' --output text --query 'Reservations[].Instances[].[InstanceId, Tags[?Key==\`Name\`]| [0].Value]' --profile $2"
+}
+
+f_aws_list_instances(){
+        eval "aws ec2 describe-instances --filters 'Name=tag:Name,Values=$1*' --query 'Reservations[].Instances[].[InstanceId,PublicIpAddress,PrivateIpAddress,Tags[?Key==\`Name\`]| [0].Value]' --output table --profile $2"
+}
+
+f_aws_delete_instance_profile(){
+        eval "aws iam delete-instance-profile --instance-profile-name $1"
+}
+
+f_aws_ssh() {
+        jumpbox_name="$1-jumpbox"
+        profile="$1"
+        IP=$(f_aws_public_ip "$jumpbox_name" "$profile")
+        ssh $IP
+}
+
+
+###
+## jump to folder and start virtual env
+###
+jump_and_venv(){
+  j $1
+  APP_NAME=`basename "$PWD"`&& source ~/.virtualenv/$APP_NAME/bin/activate
+}
+#
