@@ -119,7 +119,6 @@ fi
 
 source <(kubectl completion zsh)
 
-export TERRAGRUNT_ROOT=/Users/lucas.santanna/dev/ops/proto-terraform-cd
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/lucas.santanna/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lucas.santanna/Downloads/google-cloud-sdk/path.zsh.inc'; fi
