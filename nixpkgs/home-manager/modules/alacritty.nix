@@ -1,21 +1,36 @@
 { config, pkgs, lib, libs, ... }:
 {
   programs.alacritty = {
-   settings = ''
-   font:
-    normal:
-        family: SauceCodePro Nerd Font
-        style: Regular
-    bold:
-        family: SauceCodePro Nerd Font
-        style: Bold
-    italic:
-        family: SauceCodePro Nerd Font
-        style: Italic
+  enable = true;
+settings = {
+    window = {
+      title = "Terminal";
 
-    # Point size of the font
-    size: 16
-  '' 
+      position = {
+        x = 900;
+        y = 350;
+      };
+      dimensions = {
+        lines = 40;
+        columns = 125;
+      };
+    };
+
+    font = {
+      normal.family = "SauceCodePro Nerd Font";
+      size = 15.0;
+    };
+
+    window.opacity = 0.99;
+
+    shell = {
+      program = "${pkgs.fish}/bin/fish";
+      args = [ "--init-command" "echo; neofetch; echo" ];
+    };
+
+    colors = {
+    };
   };
   
+};
 }
