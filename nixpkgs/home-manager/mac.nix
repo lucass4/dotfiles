@@ -2,6 +2,7 @@
 
 {
 imports = [
+    ./modules/alacritty.nix
     ./modules/home-manager.nix
     ./modules/fish.nix
     ./modules/common.nix
@@ -13,6 +14,16 @@ imports = [
   home.homeDirectory = "/Users/lucas.anna";
 
   home.stateVersion = "22.05";
+  
+  home.activation = {
+    aliasApplications = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      app_folder=$(echo ~/Applications);
+      for app in $(find "$genProfilePath/home-path/Applications" -type l); do
+        $DRY_RUN_CMD rm -f $app_folder/$(basename $app)
+        $DRY_RUN_CMD osascript -e "tell app \"Finder\"" -e "make new alias file at POSIX file \"$app_folder\" to POSIX file \"$app\"" -e "set name of result to \"$(basename $app)\"" -e "end tell"
+      done
+    '';
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

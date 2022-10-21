@@ -44,6 +44,11 @@
     jc
     yq
     awscli
+    zoxide
+    zellij
+    nerdfonts
+    powerline-fonts
+    alacritty
 
   ] ++ lib.optionals stdenv.isDarwin [
     coreutils # provides `dd` with --status=progress
