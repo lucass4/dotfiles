@@ -8,17 +8,25 @@ programs.neovim = {
         plenary-nvim
         telescope-nvim
         popup-nvim
-        nvim-lspconfig
         nvim-treesitter
-        coq_nvim
-        cmp-nvim-lsp
-        cmp-buffer
-        nvim-cmp
         lspkind-nvim
-        defx-git
-        defx-icons
-        defx-nvim
         lspsaga-nvim
+
+nvim-lspconfig
+cmp-nvim-lsp
+cmp-buffer
+cmp-path
+cmp-cmdline
+nvim-cmp
+
+cmp-vsnip
+vim-vsnip
     ];
+
+extraConfig = (builtins.concatStringsSep "\n" [
+      (builtins.readFile ./nvim/plugin/cmp.vim)
+    ]);
+
   };
+
 }
