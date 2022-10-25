@@ -39,8 +39,37 @@
         name = "fzf-fish";
         src = pkgs.fishPlugins.fzf-fish;
       }
-
     ];
+
+    shellAliases = {
+      nvim = "nvim";
+      kn = "kubectl config set-context --current --namespace";
+      l = "lsd";
+      fz =
+        "fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'";
+      ls = "exa --git --icons";
+    };
+
+    shellAbbrs = {
+      # git
+      g = "git";
+      gs = "git status -s";
+      ga = "git add";
+      gl =
+        "git log --pretty=format:'%C(yellow)%h %Cred%ar %Cblue%an%Cgreen%d %Creset%s' --date=short";
+      gd = "git diff";
+      gp = "git pull";
+      gps = "git push";
+      gcm = "git commit";
+      gco = "git checkout";
+      gcl = "git clone";
+
+      d = "docker";
+      dc = "docker compose";
+      k = "kubectl";
+
+      findport = "sudo lsof -iTCP -sTCP:LISTEN -n -P | grep";
+    };
   };
 
 }
