@@ -51,7 +51,6 @@
     };
 
     shellAbbrs = {
-      # git
       g = "git";
       gs = "git status -s";
       ga = "git add";
