@@ -8,6 +8,7 @@ imports = [
     ./modules/common.nix
     ./modules/git.nix
     ./modules/neovim.nix
+    ./modules/languages_tools.nix
   ];
 
   home.username = "lucas.anna";
