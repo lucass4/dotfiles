@@ -9,6 +9,7 @@
     ./modules/git.nix
     ./modules/neovim.nix
     ./modules/languages_tools.nix
+    ./modules/zellij.nix
   ];
 
   home.username = "lucas.anna";
