@@ -1,7 +1,7 @@
 { lib, manual, config, pkgs, ... }:
 
 {
-imports = [
+  imports = [
     ./modules/alacritty.nix
     ./modules/home-manager.nix
     ./modules/fish.nix
@@ -15,7 +15,7 @@ imports = [
   home.homeDirectory = "/Users/lucas.anna";
 
   home.stateVersion = "22.05";
-  
+
   home.activation = {
     aliasApplications = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       app_folder=$(echo ~/Applications);
@@ -30,7 +30,6 @@ imports = [
   programs.home-manager.enable = true;
   manual.manpages.enable = false;
 
- nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "1password-cli"
-  ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [ "1password-cli" ];
 }

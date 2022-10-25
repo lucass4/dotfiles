@@ -1,9 +1,8 @@
-{ config, lib, pkgs, ... }:
-{
+{ config, lib, pkgs, ... }: {
 
   programs.fish.enable = true;
- programs.fish = {
- interactiveShellInit = ''
+  programs.fish = {
+    interactiveShellInit = ''
       set PATH ~/.nix-profile/bin /nix/var/nix/profiles/default/bin $PATH
       # Setup terminal, and turn on colors
 
@@ -36,14 +35,13 @@
           sha256 = "sha256-/x1NlbhxRZjrsk4C0mkSQi4zzpOaxL1O1vvzDHhGQk0=";
         };
       }
-    { name = "fzf-fish"; 
-      src =  pkgs.fishPlugins.fzf-fish; 
-    }
-
+      {
+        name = "fzf-fish";
+        src = pkgs.fishPlugins.fzf-fish;
+      }
 
     ];
-};
+  };
 
 }
-
 
