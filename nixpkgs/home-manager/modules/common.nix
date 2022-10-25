@@ -6,7 +6,6 @@
   home.packages = with pkgs;
     [
       gnupg
-      tmux
       wget
       bat
       fzf
@@ -16,6 +15,7 @@
       tree
       du-dust
       ripgrep
+      fd
       graphviz
       git-crypt
       httpstat
@@ -45,10 +45,10 @@
       yq
       awscli
       zoxide
-      zellij
       nerdfonts
       powerline-fonts
       alacritty
+      zellij
 
     ] ++ lib.optionals stdenv.isDarwin [
       coreutils # provides `dd` with --status=progress
@@ -57,11 +57,6 @@
 
       libuuid # `uuidgen` (already pre-installed on mac)
     ];
-
-  programs.tmux = {
-    enable = true;
-    clock24 = true;
-  };
 
   programs.dircolors = { enable = true; };
 

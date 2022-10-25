@@ -23,7 +23,10 @@
     ];
 
     extraConfig = (builtins.concatStringsSep "\n"
-      [ (builtins.readFile ./nvim/plugin/cmp.vim) ]);
+      [ 
+      #(builtins.readFile ./nvim/plugin/cmp.vim) 
+      ]
+      );
 
   };
 
