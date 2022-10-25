@@ -14,6 +14,8 @@
     pkgs.openssl
     pkgs.pkg-config
     nixfmt
+    lua
+    luarocks
   ];
 }
 

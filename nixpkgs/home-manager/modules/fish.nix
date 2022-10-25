@@ -46,7 +46,7 @@
     ];
 
     shellAliases = {
-      nvim = "nvim";
+      vim = "nvim";
       kn = "kubectl config set-context --current --namespace";
       l = "lsd";
       fz =
