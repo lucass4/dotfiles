@@ -1,28 +1,32 @@
 { config, lib, pkgs, ... }: {
 
-  programs.fish.enable = true;
   programs.fish = {
+    enable = true;
     interactiveShellInit = ''
-      set PATH ~/.nix-profile/bin /nix/var/nix/profiles/default/bin $PATH
-      # Setup terminal, and turn on colors
+       	   set PATH ~/.nix-profile/bin /nix/var/nix/profiles/default/bin ~/.cargo/bin $GOPATH/bin ~/.npm-global-packages/bin $PATH
 
-      # language settings
-      set -x LANG en_US.UTF-8
-      set -x LC_CTYPE "en_US.UTF-8"
-      set -x LC_MESSAGES "en_US.UTF-8"
-      set -x LC_COLLATE C
-      set -g theme_nerd_fonts yes
-      set -g theme_color_scheme solarized
+           # Setup terminal, and turn on colors
+           set -x TERM xterm-256color
 
-      set EDITOR nvim
-      # Enable direnv
-      if command -v direnv &>/dev/null
-          eval (direnv hook fish)
-      end
-      # Enable zoxice `z` (https://github.com/ajeetdsouza/zoxide)
-      if command -v zoxide &>/dev/null
-        zoxide init fish | source
-      end
+           # language settings
+           set -x LANG en_US.UTF-8
+
+           set -x LC_CTYPE "en_US.UTF-8"
+           set -x LC_MESSAGES "en_US.UTF-8"
+           set -x LC_COLLATE C
+           set -g theme_nerd_fonts yes
+           set -g theme_color_scheme solarized
+
+           set EDITOR nvim
+
+           # Enable direnv
+           if command -v direnv &>/dev/null
+               eval (direnv hook fish)
+           end
+           # Enable zoxice `z` (https://github.com/ajeetdsouza/zoxide)
+           if command -v zoxide &>/dev/null
+             zoxide init fish | source
+           end
     '';
 
     plugins = [
@@ -70,6 +74,5 @@
       findport = "sudo lsof -iTCP -sTCP:LISTEN -n -P | grep";
     };
   };
-
 }
 
