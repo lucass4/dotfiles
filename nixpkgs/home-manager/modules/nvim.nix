@@ -22,7 +22,8 @@
       nvim-tree-lua
       nvim-web-devicons
 
-      nvim-colorizer-lua #color highlighter 
+      nvim-dap # Debug Adapter Protocol
+      telescope-dap-nvim # telescope support for dap
     ];
 
 };
