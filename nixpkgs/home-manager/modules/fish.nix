@@ -60,6 +60,7 @@
       bat = "cat";
       find = "fd";
       grep = "rg";
+      rm = "trash";
     };
 
     shellAbbrs = {
