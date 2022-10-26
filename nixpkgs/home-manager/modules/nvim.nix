@@ -24,6 +24,10 @@
 
       nvim-dap # Debug Adapter Protocol
       telescope-dap-nvim # telescope support for dap
+
+      impatient-nvim # Speed up loading Lua modules in Neovim 
+
+      nvim-autopairs # A super powerful autopair plugin for Neovim that supports multiple characters.
     ];
 
 };
