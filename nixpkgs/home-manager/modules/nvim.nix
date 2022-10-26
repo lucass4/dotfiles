@@ -21,6 +21,8 @@
       ## tree setup
       nvim-tree-lua
       nvim-web-devicons
+
+      nvim-colorizer-lua #color highlighter 
     ];
 
 };
