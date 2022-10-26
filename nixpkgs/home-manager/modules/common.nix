@@ -50,6 +50,8 @@
       alacritty
       zellij
       vimPlugins.packer-nvim
+      nodePackages.lua-fmt
+
 
     ] ++ lib.optionals stdenv.isDarwin [
       coreutils # provides `dd` with --status=progress
