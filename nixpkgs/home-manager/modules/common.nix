@@ -49,7 +49,6 @@
       powerline-fonts
       alacritty
       zellij
-
     ] ++ lib.optionals stdenv.isDarwin [
       coreutils # provides `dd` with --status=progress
     ] ++ lib.optionals stdenv.isLinux [

@@ -2,15 +2,13 @@
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
-      lualine-nvim
-      nvim-web-devicons
-      plenary-nvim
-      telescope-nvim
-      popup-nvim
-      nvim-treesitter
-      lspkind-nvim
-      lspsaga-nvim
+      lualine-nvim # status line in nvim
+      nvim-web-devicons # pluging icons
+      plenary-nvim # base for many nvim plugins
+      telescope-nvim # fuzzy finder for neovim
+      nvim-treesitter # treesitter abstraction for treesitter 
 
+      ## LSP configuration
       nvim-lspconfig
       cmp-nvim-lsp
       cmp-buffer
@@ -24,7 +22,8 @@
 
     extraConfig = (builtins.concatStringsSep "\n"
       [ 
-      #(builtins.readFile ./nvim/plugin/cmp.vim) 
+        #(builtins.readFile ./nvim/plugin/cmp.vim) 
+      	(builtins.readFile ./nvim/init-lua.lua)
       ]
       );
 
