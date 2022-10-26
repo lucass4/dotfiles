@@ -1,10 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{ config, xdg, lib, pkgs, ... }: {
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
       lualine-nvim # status line in nvim
-      nvim-web-devicons # pluging icons
-      plenary-nvim # base for many nvim plugins
+      nvim-web-devicons # pluging icons and dependency for lualine-nvim 
+      plenary-nvim # base for many nvim plugins and also dependency for telescope
       telescope-nvim # fuzzy finder for neovim
       nvim-treesitter # treesitter abstraction for treesitter 
 
@@ -20,11 +20,16 @@
       vim-vsnip
     ];
 
-     extraConfig = builtins.concatStringsSep "\n" [
-      ''
-      (luafile /config/nvim/init_lua.lua)
-      ''
-     ];
+};
+   xdg.configFile = {
+    nvim = {
+      source = ./config/nvim;
+      recursive = true;
+    };
   };
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
 }

@@ -49,6 +49,8 @@
       powerline-fonts
       alacritty
       zellij
+      vimPlugins.packer-nvim
+
     ] ++ lib.optionals stdenv.isDarwin [
       coreutils # provides `dd` with --status=progress
     ] ++ lib.optionals stdenv.isLinux [
