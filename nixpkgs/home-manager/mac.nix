@@ -7,7 +7,7 @@
     ./modules/fish.nix
     ./modules/common.nix
     ./modules/git.nix
-    ./modules/neovim.nix
+    ./modules/nvim.nix
     ./modules/languages_tools.nix
     ./modules/zellij.nix
   ];
