@@ -15,9 +15,12 @@
       cmp-path
       cmp-cmdline
       nvim-cmp
-
       cmp-vsnip
       vim-vsnip
+
+      ## tree setup
+      nvim-tree-lua
+      nvim-web-devicons
     ];
 
 };
