@@ -14,6 +14,7 @@
       exa
       tree
       du-dust
+      dogdns
       ripgrep
       fd
       graphviz
@@ -43,7 +44,7 @@
       diff-so-fancy
       jc
       yq
-      awscli
+      awscli2
       zoxide
       nerdfonts
       powerline-fonts

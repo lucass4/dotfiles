@@ -7,6 +7,10 @@
     # terraform dependencies
     tgswitch
     tfswitch
+    tflint
+    terraform-docs
+    pre-commit
+    cookiecutter
     # nodejs dependencies
     nodejs-18_x
     yarn

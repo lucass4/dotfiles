@@ -581,7 +581,7 @@ in {
 
       # Path to the default editor to use to edit pane scrollbuffer
       scrollback_editor: "/Users/lucas.anna/.nix-profile/bin/nvim"
-      default_shell: fish
+      default_shell: "/Users/lucas.anna/.nix-profile/bin/fish"
       simplified_ui: true
       pane_frames: false 
       scroll_buffer_size: 1000000

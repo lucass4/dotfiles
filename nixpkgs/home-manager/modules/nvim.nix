@@ -1,7 +1,21 @@
-{ config, xdg, lib, pkgs, ... }: {
+{ config, xdg, lib, pkgs, ... }:
+let customPlugins = {
+      mason= pkgs.vimUtils.buildVimPlugin {
+        name = "mason-vim";
+        src = pkgs.fetchFromGitHub {
+          owner = "williamboman";
+          repo = "mason.nvim";
+          rev = "7380bd04bd194ce7317a8a8b3f0fe144d1917e72";
+          sha256 = "0f8smjl6wi52p8n1hhl5zhk8i3lpsfndxxdammyybw2vz17s0j8q";
+        };
+      };
+    };
+in
+{
   programs.neovim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; [
+    plugins = with pkgs.vimPlugins // customPlugins; [
+      mason 
       lualine-nvim # status line in nvim
       nvim-web-devicons # pluging icons and dependency for lualine-nvim
       plenary-nvim # base for many nvim plugins and also dependency for telescope

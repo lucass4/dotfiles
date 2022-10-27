@@ -10,4 +10,5 @@ require('config.telescope-dap')
 require('config.keymaps')
 require('config.autopairs')
 require('config.colorscheme')
+require('config.mason')
 
