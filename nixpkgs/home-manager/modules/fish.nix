@@ -3,9 +3,9 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
-            	  set PATH ~/.nix-profile/bin /nix/var/nix/profiles/default/bin ~/.cargo/bin $GOPATH/bin ~/.npm-global-packages/bin $HOME/bin /usr/local/bin/ $PATH
-
-                set -gx TERRAGRUNT_DISABLE_PROFILE true
+                set PATH ~/.nix-profile/bin /nix/var/nix/profiles/default/bin ~/.cargo/bin $GOPATH/bin ~/.npm-global-packages/bin $HOME/bin /usr/local/bin/ $PATH
+                # terrafrom config
+                set -gx TERRAGRUNT_DISABLE_PROFILE true 
 
                 # Setup terminal, and turn on colors
                 set -x TERM xterm-256color
