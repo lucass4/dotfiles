@@ -30,6 +30,8 @@
                 if command -v zoxide &>/dev/null
                   zoxide init fish | source
                 end
+                
+                . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
 
       	  	if status is-interactive
          	    eval "$(zellij setup --generate-auto-start fish)"
@@ -83,6 +85,7 @@
       k = "kubectl";
       tg = "terragrunt";
       tf = "terraform";
+      hmsf = "home-manager switch --flake ~/dotfiles#lucas";
 
       findport = "sudo lsof -iTCP -sTCP:LISTEN -n -P | grep";
     };

@@ -50,7 +50,6 @@
       powerline-fonts
       alacritty
       zellij
-      vimPlugins.packer-nvim
       nodePackages.lua-fmt
 
 

@@ -1,4 +1,6 @@
+require('plugins')
 require('impatient')
+
 require('config.options')
 require('config.cmp')
 require('config.treesitter')
@@ -11,4 +13,5 @@ require('config.keymaps')
 require('config.autopairs')
 require('config.colorscheme')
 require('config.mason')
+require('config.nvim-comment')
 
