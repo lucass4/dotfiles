@@ -13,5 +13,6 @@ require('config.keymaps')
 require('config.autopairs')
 require('config.colorscheme')
 require('config.mason')
+require('config.null-ls')
 require('config.comment')
 

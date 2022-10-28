@@ -26,6 +26,8 @@ return require('packer').startup(function(use)
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   }
+  -- code formating and more
+  use{ "jose-elias-alvarez/null-ls.nvim"}
   -- Tree setup
   use {
     'nvim-tree/nvim-tree.lua',
@@ -44,7 +46,5 @@ return require('packer').startup(function(use)
   use {'folke/tokyonight.nvim'}
   -- nvim comment plugin
   use {'terrortylor/nvim-comment'}
-
-
 end)
 
