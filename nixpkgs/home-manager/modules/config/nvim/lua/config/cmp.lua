@@ -20,6 +20,7 @@
       ['<CR>'] = cmp.mapping.confirm({ select = true }), 
     }),
     sources = cmp.config.sources({
+     { name = 'path' },                              -- file paths
       { name = 'nvim_lsp' },
       { name = 'vsnip' },
     }, {
@@ -56,7 +57,12 @@
 
   -- Set up lspconfig.
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  local lsp_installer = require("mason-lspconfig")
+  local lspconfig = require("lspconfig")
 
-  require('lspconfig')['gopls'].setup {
+
+  for _, server in ipairs(lsp_installer.get_installed_servers()) do
+    lspconfig[server].setup {
     capabilities = capabilities
-  }
+   }
+  end
