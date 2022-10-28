@@ -5,4 +5,4 @@ vim.g.loaded_netrwPlugin = 1
 -- empty setup using defaults
 require("nvim-tree").setup()
 
-vim.keymap.set('n', '<leader>e', ":NvimTreeOpen<CR>", {})
+vim.keymap.set("n", "<leader>e", ":NvimTreeOpen<CR>", {})

@@ -28,6 +28,22 @@
     # lua dependencies
     lua
     luarocks
+
+    #refactoring
+
+    stylua
+
+    gotools
+    revive
+
+    nixfmt
+    nixpkgs-fmt
+
+    yapf
+    nodePackages.prettier
+    shfmt
+    rustfmt
+    hadolint
+
   ];
 }
-
