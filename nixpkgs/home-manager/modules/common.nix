@@ -5,61 +5,59 @@
 
   home.packages = with pkgs;
     [
-      gnupg
-      wget
-      bat
-      fzf
+      du-dust # better du
+      exa # better ls
       neofetch # fancy system + hardware info
       tealdeer # fast tldr
-      exa
-      tree
-      du-dust
-      dogdns
-      ripgrep
-      fd
-      graphviz
+      dogdns # replacement for dig
+      ripgrep # replacement for grep
+      fd # replacement for find
+      bat # replacement for cat
+      trash-cli # a better rm tool
+      zoxide # better jump written in Rust
+
+      git
+      gitAndTools.gh
       git-crypt
+      git-lfs
+      hub
+
+      fzf
+      tree
       httpstat
       curlie
+      wget
       speedtest-cli
-      yarn
-      jq
       cloc
-      # compression
+
+      # Compression
       zip
-      pigz # parallel gzip
+      pigz
       lz4
-      git
-      # github cli
-      gitAndTools.gh
-      hub
+
+      # Kubernetes 
       kubectx
       kubectl
       krew
-      pgcli
-      watch
-      reattach-to-user-namespace
-      git-lfs
-      trash-cli
-      diff-so-fancy
-      jc
-      yq
-      awscli2
-      zoxide
+
       nerdfonts
       powerline-fonts
       alacritty
       zellij
-      nodePackages.lua-fmt
+
+      jc
+      yq
+      jq
+
+      pgcli
+      gnupg
+      graphviz
+      watch
+      reattach-to-user-namespace
+      awscli2
 
     ] ++ lib.optionals stdenv.isDarwin [
       coreutils # provides `dd` with --status=progress
-    ] ++ lib.optionals stdenv.isLinux [
-      iputils # provides `ping`, `ifconfig`, ...
-
-      libuuid # `uuidgen` (already pre-installed on mac)
     ];
-
   programs.dircolors = { enable = true; };
-
 }

@@ -7,8 +7,17 @@
     ./modules/common.nix
     ./modules/git.nix
     ./modules/nvim.nix
-    ./modules/languages_tools.nix
     ./modules/zellij.nix
+    ./modules/languages/docker.nix
+    ./modules/languages/go.nix
+    ./modules/languages/lua.nix
+    ./modules/languages/markup.nix
+    ./modules/languages/node.nix
+    ./modules/languages/python.nix
+    ./modules/languages/rust.nix
+    ./modules/languages/terraform.nix
+    ./modules/languages/nix.nix
+    ./modules/languages/bash.nix
   ];
 
   home.username = "lucas.anna";
