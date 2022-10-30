@@ -65,6 +65,7 @@
       find = "fd";
       grep = "rg";
       rm = "trash";
+      du = "dust";
     };
 
     shellAbbrs = {
