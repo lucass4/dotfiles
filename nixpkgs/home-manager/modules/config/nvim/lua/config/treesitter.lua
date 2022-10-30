@@ -3,7 +3,7 @@ require("nvim-treesitter")
 require("nvim-treesitter.configs").setup({
 	parser_install_dir = "$HOME/.config/nvim/parsers",
 	ensure_installed = { "lua", "rust", "toml", "hcl", "go", "python", "yaml" },
-	auto_install = true,
+	auto_install = false,
 	highlight = {
 		enable = true,
 	},
