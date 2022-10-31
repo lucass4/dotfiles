@@ -24,9 +24,8 @@
       set -g default-shell $SHELL              # use default shell
       set -sg escape-time 5                    # delay shorter
       set -g bell-action none                   # disable bell
-      set -sg history-limit 50000              # increase scrollback
+      set -sg history-limit 100000              # increase scrollback
       set -g mouse on                          # enable mouse mode
-      # left status is only length of 10
       set -g status-left-length 50
       ## General Settings
       setw -g xterm-keys on                     # enable xterm keys
@@ -61,7 +60,6 @@
       bind b list-buffers  # list paste buffers
       bind p paste-buffer  # paste from the top paste buffer
       bind P choose-buffer # choose which buffer to paste from
-
     '';
   };
 }
