@@ -28,7 +28,7 @@
       set -g mouse on                          # enable mouse mode
       set -g status-left-length 50
       ## General Settings
-      setw -g xterm-keys on                     # enable xterm keys
+      #setw -g xterm-keys on                     # enable xterm keys
 
       ## Copy and Paste
       bind Escape copy-mode
@@ -53,7 +53,7 @@
       bind x kill-pane                                          # kill pane without confirmation
       bind k kill-window                                        # kill window
       bind q kill-session                                       # kill session
-      bind r source-file ~/~/.config/tmux/tmux.conf             # reload tmux config
+      bind r source-file .config/tmux/tmux.conf                 # reload tmux config
       bind t select-layout tiled                                # tiled layout
 
       # Buffers
