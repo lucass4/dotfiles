@@ -15,6 +15,7 @@
       bat # replacement for cat
       trash-cli # a better rm tool
       zoxide # better jump written in Rust
+      spotify-tui
 
       git
       gitAndTools.gh
