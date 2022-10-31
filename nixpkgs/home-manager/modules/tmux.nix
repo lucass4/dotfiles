@@ -19,6 +19,8 @@
     ];
 
     extraConfig = ''
+      TMUX_FZF_LAUNCH_KEY="C-f"
+
       set -g detach-on-destroy off             # When destory switch to the prev session
       set -ga terminal-overrides ",xterm-256color:Tc"
       set -g default-shell $SHELL              # use default shell
@@ -28,7 +30,8 @@
       set -g mouse on                          # enable mouse mode
       set -g status-left-length 50
       ## General Settings
-      #setw -g xterm-keys on                     # enable xterm keys
+      setw -g xterm-keys on                     # enable xterm keys
+      set-option -sg escape-time 0 # change the escape time in tmux to zero, improves vim responsiveness
 
       ## Copy and Paste
       bind Escape copy-mode
