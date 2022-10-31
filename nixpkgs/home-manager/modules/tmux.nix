@@ -12,6 +12,7 @@
       copycat
       extrakto
       nord
+      resurrect
       prefix-highlight
       tmux-fzf
       vim-tmux-navigator
@@ -53,7 +54,7 @@
       bind x kill-pane                                          # kill pane without confirmation
       bind k kill-window                                        # kill window
       bind q kill-session                                       # kill session
-      bind r source-file ~/.tmux.conf                           # reload tmux config
+      bind r source-file ~/~/.config/tmux/tmux.conf             # reload tmux config
       bind t select-layout tiled                                # tiled layout
 
       # Buffers
@@ -62,10 +63,5 @@
       bind P choose-buffer # choose which buffer to paste from
 
     '';
-  };
-
-  xdg.configFile."tmux/conf" = {
-    source = ./config/tmux/tmux.conf;
-    recursive = true;
   };
 }
