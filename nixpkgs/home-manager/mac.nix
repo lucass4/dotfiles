@@ -7,7 +7,8 @@
     ./modules/common.nix
     ./modules/git.nix
     ./modules/nvim.nix
-    ./modules/zellij.nix
+    ./modules/tmux.nix
+    #    ./modules/zellij.nix
     ./modules/languages/docker.nix
     ./modules/languages/go.nix
     ./modules/languages/lua.nix
@@ -37,6 +38,7 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  programs.tmux.enable = true;
   manual.manpages.enable = false;
 
   nixpkgs.config.allowUnfreePredicate = pkg:

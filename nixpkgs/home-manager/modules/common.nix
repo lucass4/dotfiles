@@ -43,7 +43,8 @@
       nerdfonts
       powerline-fonts
       alacritty
-      zellij
+      #zellij
+      tmux
 
       jc
       yq
