@@ -33,9 +33,9 @@
                 
                 . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
 
-      	  	#if status is-interactive
-         	  #  eval "$(zellij setup --generate-auto-start fish)"
-            #    end
+      	  	    if status is-interactive
+         	        eval "$(tmux)"
+                end
     '';
 
     plugins = [
