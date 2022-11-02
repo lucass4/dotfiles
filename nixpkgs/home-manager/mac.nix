@@ -24,7 +24,6 @@
   home.homeDirectory = "/Users/lucas.anna";
 
   home.stateVersion = "22.05";
-
   home.activation = {
     aliasApplications = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       app_folder=$(echo ~/Applications);
@@ -39,6 +38,8 @@
   programs.home-manager.enable = true;
   programs.tmux.enable = true;
   manual.manpages.enable = false;
+
+  nixpkgs.config.allowUnsupportedSystem = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [ "1password-cli" ];

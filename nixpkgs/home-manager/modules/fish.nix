@@ -70,17 +70,17 @@
 
     shellAbbrs = {
       g = "git";
-      gs = "git status -s";
+      gst = "git status -s";
       ga = "git add";
-      gl =
+      glo =
         "git log --pretty=format:'%C(yellow)%h %Cred%ar %Cblue%an%Cgreen%d %Creset%s' --date=short";
       gd = "git diff";
-      gp = "git pull";
-      gps = "git push";
-      gcm = "git commit";
+      gl = "git pull";
+      gp = "git push";
+      gc = "git commit";
       gco = "git checkout";
       gcl = "git clone";
-
+      gcm = "git checkout master";
       d = "docker";
       dc = "docker compose";
       k = "kubectl";

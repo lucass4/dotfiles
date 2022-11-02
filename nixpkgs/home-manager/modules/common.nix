@@ -40,11 +40,11 @@
       kubectx
       kubectl
       krew
+      #helm
 
       nerdfonts
       powerline-fonts
       alacritty
-      #zellij
       tmux
 
       jc
