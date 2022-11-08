@@ -40,7 +40,6 @@
       kubectx
       kubectl
       krew
-      #helm
 
       nerdfonts
       powerline-fonts

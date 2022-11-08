@@ -57,6 +57,7 @@
     shellAliases = {
       vim = "nvim";
       kn = "kubectl config set-context --current --namespace";
+      kdc = "kubectl config delete-context";
       l = "exa -l";
       fz =
         "fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'";

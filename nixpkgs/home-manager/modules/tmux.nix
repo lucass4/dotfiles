@@ -15,7 +15,6 @@
       resurrect
       prefix-highlight
       tmux-fzf
-      vim-tmux-navigator
     ];
 
     extraConfig = ''
