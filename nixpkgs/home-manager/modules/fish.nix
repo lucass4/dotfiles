@@ -56,7 +56,6 @@
 
     shellAliases = {
       vim = "nvim";
-      kn = "kubectl config set-context --current --namespace";
       kdc = "kubectl config delete-context";
       l = "exa -l";
       fz =
@@ -72,6 +71,7 @@
     shellAbbrs = {
       g = "git";
       gst = "git status -s";
+      kn = "kubectl config set-context --current --namespace";
       ga = "git add";
       glo =
         "git log --pretty=format:'%C(yellow)%h %Cred%ar %Cblue%an%Cgreen%d %Creset%s' --date=short";

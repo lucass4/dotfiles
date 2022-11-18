@@ -17,6 +17,8 @@
       zoxide # better jump written in Rust
       spotify-tui
 
+      _1password
+
       git
       gitAndTools.gh
       git-crypt
@@ -40,6 +42,9 @@
       kubectx
       kubectl
       krew
+      kubernetes-helm
+      colima
+      devspace
 
       nerdfonts
       powerline-fonts
@@ -56,6 +61,11 @@
       watch
       reattach-to-user-namespace
       awscli2
+
+      # window managemnt and hotkeys
+      skhd
+      yabai
+      sketchybar
 
     ] ++ lib.optionals stdenv.isDarwin [
       coreutils # provides `dd` with --status=progress

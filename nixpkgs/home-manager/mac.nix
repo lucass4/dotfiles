@@ -1,6 +1,4 @@
-{ lib, manual, config, pkgs, ... }:
-
-{
+{ lib, manual, config, pkgs, ... }: {
   imports = [
     ./modules/alacritty.nix
     ./modules/fish.nix
@@ -8,6 +6,8 @@
     ./modules/git.nix
     ./modules/nvim.nix
     ./modules/tmux.nix
+    ./modules/yabai.nix
+    ./modules/skhd.nix
     ./modules/languages/docker.nix
     ./modules/languages/go.nix
     ./modules/languages/lua.nix
@@ -38,8 +38,6 @@
   programs.home-manager.enable = true;
   programs.tmux.enable = true;
   manual.manpages.enable = false;
-
-  nixpkgs.config.allowUnsupportedSystem = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [ "1password-cli" ];
