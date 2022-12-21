@@ -44,11 +44,12 @@
       krew
       kubernetes-helm
       colima
-      devspace
+      #devspace
+      docker-client
 
       nerdfonts
       powerline-fonts
-      alacritty
+      # alacritty
       tmux
 
       jc

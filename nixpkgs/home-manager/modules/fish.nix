@@ -3,7 +3,7 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
-                set PATH ~/.nix-profile/bin /nix/var/nix/profiles/default/bin ~/.cargo/bin $GOPATH/bin ~/.npm-global-packages/bin $HOME/bin /usr/local/bin/ $PATH
+                set PATH ~/.nix-profile/bin /nix/var/nix/profiles/default/bin ~/.cargo/bin  ~/.npm-global-packages/bin $HOME/bin /usr/local/bin/ /Users/lucas.anna/go/bin `go env GOROOT` $PATH
                 # terrafrom config
                 set -gx TERRAGRUNT_DISABLE_PROFILE true 
 
@@ -18,6 +18,8 @@
                 set -x LC_COLLATE C
                 set -g theme_nerd_fonts yes
                 set -g theme_color_scheme solarized
+
+                set -gx PATH $PATH $HOME/.krew/bin
 
                 set EDITOR nvim
 

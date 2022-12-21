@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       window = {
-        title = "Terminal";
+        title = "Alacritty";
 
         position = {
           x = 900;

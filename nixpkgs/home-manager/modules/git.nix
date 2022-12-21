@@ -21,6 +21,7 @@
       core.editor = "nvim";
       core.fileMode = false;
       core.ignorecase = false;
+      url."git@github.com:".insteadOf = "https://github.com/";
     };
   };
 

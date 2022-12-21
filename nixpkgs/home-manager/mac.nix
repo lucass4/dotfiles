@@ -6,8 +6,6 @@
     ./modules/git.nix
     ./modules/nvim.nix
     ./modules/tmux.nix
-    ./modules/yabai.nix
-    ./modules/skhd.nix
     ./modules/languages/docker.nix
     ./modules/languages/go.nix
     ./modules/languages/lua.nix
