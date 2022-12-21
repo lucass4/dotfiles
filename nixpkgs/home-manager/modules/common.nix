@@ -63,11 +63,6 @@
       reattach-to-user-namespace
       awscli2
 
-      # window managemnt and hotkeys
-      skhd
-      yabai
-      sketchybar
-
     ] ++ lib.optionals stdenv.isDarwin [
       coreutils # provides `dd` with --status=progress
     ];
