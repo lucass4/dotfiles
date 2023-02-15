@@ -46,4 +46,6 @@ return require("packer").startup(function(use)
 	use({ "folke/tokyonight.nvim" })
 	-- nvim comment plugin
 	use({ "terrortylor/nvim-comment" })
+	-- nvim ag plugin
+	use({ "rking/ag.vim" })
 end)

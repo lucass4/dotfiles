@@ -3,9 +3,11 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
-                set PATH ~/.nix-profile/bin /nix/var/nix/profiles/default/bin ~/.cargo/bin  ~/.npm-global-packages/bin $HOME/bin /usr/local/bin/ /Users/lucas.anna/go/bin `go env GOROOT` $PATH
+                set PATH ~/.nix-profile/bin /nix/var/nix/profiles/default/bin ~/.cargo/bin  ~/.npm-global-packages/bin $HOME/bin /usr/local/bin/ /Users/lucas.anna/go/bin `go env GOROOT` /Users/lucas.anna/.local/bin $HOME/Library/Python/3.9/bin $GOPATH/bin $HOME $PATH 
                 # terrafrom config
                 set -gx TERRAGRUNT_DISABLE_PROFILE true 
+                
+                set -gx GOPATH $HOME/go
 
                 # Setup terminal, and turn on colors
                 set -x TERM xterm-256color
@@ -68,6 +70,7 @@
       grep = "rg";
       rm = "trash";
       du = "dust";
+      iam_check = "pipenv run python iam_check/iam_check.py";
     };
 
     shellAbbrs = {

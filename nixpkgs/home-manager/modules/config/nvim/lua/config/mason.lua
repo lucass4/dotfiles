@@ -19,6 +19,7 @@ require("mason-lspconfig").setup({
 		"gopls",
 		"grammarly",
 		"tsserver",
+		"pylsp",
 		"marksman",
 		"jedi_language_server",
 		"taplo",

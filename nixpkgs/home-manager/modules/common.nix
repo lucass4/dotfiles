@@ -62,6 +62,7 @@
       watch
       reattach-to-user-namespace
       awscli2
+      silver-searcher
 
     ] ++ lib.optionals stdenv.isDarwin [
       coreutils # provides `dd` with --status=progress
