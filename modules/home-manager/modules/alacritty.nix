@@ -23,6 +23,7 @@
       window.opacity = 0.99;
 
       shell = { 
+	program = "${pkgs.zsh}/bin/zsh";
 	args = [ "--init-command" "echo; neofetch; echo" ]; };
 
       colors = { };
