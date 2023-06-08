@@ -4,28 +4,31 @@
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgsUnstable.url = "github:NixOS/nixpkgs/master";
+
+    darwin.url = "github:lnl7/nix-darwin";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
-    let
+  outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
+    darwinConfigurations.PRODIGYMAC-QF29J406DT = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      homeConfigurations.lucas = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./nixpkgs/home-manager/mac.nix ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-      };
+      pkgs = import nixpkgs { system = "aarch64-darwin"; };
+      modules = [
+        ./modules/darwin
+        home-manager.darwinModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users."lucas.anna".imports = [ ./modules/home-manager ];
+          };
+        }
+      ];
     };
+  };
 }

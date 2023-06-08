@@ -17,8 +17,6 @@
       zoxide # better jump written in Rust
       spotify-tui
 
-      _1password
-
       git
       gitAndTools.gh
       git-crypt

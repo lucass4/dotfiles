@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }: {
 
   programs.fish = {
-    enable = true;
+    enable = false;
     interactiveShellInit = ''
                 set PATH ~/.nix-profile/bin /nix/var/nix/profiles/default/bin ~/.cargo/bin  ~/.npm-global-packages/bin $HOME/bin /usr/local/bin/ /Users/lucas.anna/go/bin `go env GOROOT` /Users/lucas.anna/.local/bin $HOME/Library/Python/3.9/bin $GOPATH/bin $HOME $PATH 
                 # terrafrom config

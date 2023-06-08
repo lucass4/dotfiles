@@ -1,7 +1,7 @@
 { lib, manual, config, pkgs, ... }: {
   imports = [
     ./modules/alacritty.nix
-    ./modules/fish.nix
+    ./modules/zsh.nix
     ./modules/common.nix
     ./modules/git.nix
     ./modules/nvim.nix
