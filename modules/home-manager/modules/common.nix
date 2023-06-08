@@ -5,6 +5,9 @@
 
   home.packages = with pkgs;
     [
+      bash
+      zsh
+      reattach-to-user-namespace
       du-dust # better du
       exa # better ls
       neofetch # fancy system + hardware info
@@ -61,6 +64,7 @@
       reattach-to-user-namespace
       awscli2
       silver-searcher
+      asdf-vm
 
     ] ++ lib.optionals stdenv.isDarwin [
       coreutils # provides `dd` with --status=progress

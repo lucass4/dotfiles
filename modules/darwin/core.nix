@@ -1,4 +1,5 @@
 { inputs, config, pkgs, ... }: {
+programs.zsh.enable = true;
   environment = {
     shells = with pkgs; [ bash zsh ];
     loginShell = pkgs.zsh;
@@ -11,6 +12,5 @@
 
   nix.extraOptions = ''
     experimental-features = nix-command flakes
-    extra-platforms = x86_64-darwin aarch64-darwin
   '';
 }

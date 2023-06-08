@@ -18,24 +18,44 @@
     ./modules/languages/bash.nix
   ];
 
-  home.username = "lucas.anna";
-  home.homeDirectory = "/Users/lucas.anna";
+#  home.username = "lucas.anna";
+#  home.homeDirectory = "/Users/lucas.anna";
 
   home.stateVersion = "22.05";
-  home.activation = {
-    aliasApplications = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      app_folder=$(echo ~/Applications);
-      for app in $(find "$genProfilePath/home-path/Applications" -type l); do
-        $DRY_RUN_CMD rm -f $app_folder/$(basename $app)
-        $DRY_RUN_CMD osascript -e "tell app \"Finder\"" -e "make new alias file at POSIX file \"$app_folder\" to POSIX file \"$app\"" -e "set name of result to \"$(basename $app)\"" -e "end tell"
-      done
-    '';
-  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   programs.tmux.enable = true;
   manual.manpages.enable = false;
+
+  home.sessionVariables = {
+    LANG = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
+    TERM = "xterm-256color";
+    KEYTIMEOUT = 1;
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    GIT_EDITOR = "nvim";
+    LS_COLORS =
+      "no=00:fi=00:di=01;34:ln=35;40:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=01;32:*.cmd=01;32:*.exe=01;32:*.com=01;32:*.btm=01;32:*.bat=01;32:";
+    LSCOLORS = "ExfxcxdxCxegedabagacad";
+    FIGNORE = "*.o:~:Application Scripts:CVS:.git";
+    TZ = "America/Vancouver";
+    LESS =
+      "--raw-control-chars -FXRadeqs -P--Less--?e?x(Next file: %x):(END).:?pB%pB%.";
+    CLICOLOR = 1;
+    CLICOLOR_FORCE = "yes";
+    PAGER = "page -WO -q 90000";
+    # Add colors to man pages
+    MANPAGER = "less -R --use-color -Dd+r -Du+b +Gg -M -s";
+    SYSTEMD_COLORS = "true";
+    COLORTERM = "truecolor";
+    FZF_CTRL_R_OPTS = "--sort --exact";
+    BROWSER = "brave";
+    TERMINAL = "alacritty";
+    HOMEBREW_NO_AUTO_UPDATE = 1;
+    TERRAGRUNT_DISABLE_PROFILE = "true";
+  };
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [ "1password-cli" ];
