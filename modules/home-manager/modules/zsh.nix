@@ -87,6 +87,8 @@
       k = "kubectl";
       tg = "terragrunt";
       tf = "terraform";
+      vim = "nvim";
+      vi="nvim";
 
       fz =
         "fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'";
