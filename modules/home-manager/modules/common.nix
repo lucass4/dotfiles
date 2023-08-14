@@ -58,6 +58,7 @@
       jq
 
       pgcli
+      page
       gnupg
       graphviz
       watch
@@ -70,4 +71,19 @@
       coreutils # provides `dd` with --status=progress
     ];
   programs.dircolors = { enable = true; };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    enableNushellIntegration = false;
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    tmux.enableShellIntegration = true;
+    defaultCommand = "fd --type f --hidden --exclude .git";
+    fileWidgetCommand = "fd --type f"; # for when ctrl-t is pressed
+  };
+
 }

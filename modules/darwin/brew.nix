@@ -6,7 +6,7 @@
       autoUpdate = false;
       upgrade = false;
       #cleanup =
-       # "uninstall"; # should maybe be "zap" - remove anything not listed here
+      # "uninstall"; # should maybe be "zap" - remove anything not listed here
     };
     global = { brewfile = true; };
 
@@ -25,11 +25,13 @@
       "discord"
       "gpg-suite"
       "pomatez" # pomodoro timer, but installs itself as startup item and doesn't
+      "pgadmin4"
     ];
 
     masApps = { };
     brews = [
       "trippy" # an mtr alternative
+      "pre-commit"
     ];
   };
 }

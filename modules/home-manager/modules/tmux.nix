@@ -2,6 +2,7 @@
   programs.tmux = {
     enable = true;
     aggressiveResize = true;
+    shell = "${pkgs.zsh}/bin/zsh";
     baseIndex = 1;
     clock24 = true;
     disableConfirmationPrompt = true;

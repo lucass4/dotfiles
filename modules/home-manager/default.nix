@@ -18,8 +18,8 @@
     ./modules/languages/bash.nix
   ];
 
-#  home.username = "lucas.anna";
-#  home.homeDirectory = "/Users/lucas.anna";
+  #  home.username = "lucas.anna";
+  #  home.homeDirectory = "/Users/lucas.anna";
 
   home.stateVersion = "22.05";
 
@@ -29,9 +29,9 @@
   manual.manpages.enable = false;
 
   home.sessionVariables = {
-    LANG = "en_US.UTF-8";
-    LC_ALL = "en_US.UTF-8";
-    TERM = "xterm-256color";
+    LANG = "en_CA.UTF-8";
+    LC_ALL = "en_CA.UTF-8";
+    # TERM = "xterm-256color";
     KEYTIMEOUT = 1;
     EDITOR = "nvim";
     VISUAL = "nvim";
@@ -59,4 +59,5 @@
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [ "1password-cli" ];
+
 }

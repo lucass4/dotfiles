@@ -2,8 +2,8 @@
   home.packages = with pkgs; [
     pre-commit
     cookiecutter
-    python3
-    python310Packages.pip
+    #python3
+    #python310Packages.pip
     yapf
   ];
 }

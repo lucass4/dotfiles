@@ -4,6 +4,7 @@
     settings = {
       window = {
         title = "Alacritty";
+        opacity = 0.9;
 
         position = {
           x = 900;
@@ -17,14 +18,19 @@
 
       font = {
         normal.family = "SauceCodePro Nerd Font";
-        size = 15.0;
+        normal.style = "Regular";
+        bold.style = "Bold";
+        italic.style = "Italic";
+        bold_italic.style = "Bold Italic";
+        size = 16.0;
       };
 
-      window.opacity = 0.99;
+      live_config_reload = true;
 
-      shell = { 
-	program = "${pkgs.zsh}/bin/zsh";
-	args = [ "--init-command" "echo; neofetch; echo" ]; };
+      shell = { args = [ "--init-command" "echo; neofetch; echo" ]; };
+      shell.program = "${pkgs.zsh}/bin/zsh";
+      cursor.vi_mode_style = "Underline";
+      draw_bold_text_with_bright_colors = true;
 
       colors = { };
     };

@@ -12,7 +12,7 @@
     history = {
       expireDuplicatesFirst = true;
       ignoreSpace = true;
-      save = 10000; # save 10,000 lines of history
+      save = 100000; # save 10,000 lines of history
     };
     envExtra = ''
       # don't use global env as it will slow us down
@@ -45,21 +45,8 @@
         sha256 = "0za4aiwwrlawnia4f29msk822rj9bgcygw6a8a6iikiwzjjz0g91";
       };
     }];
-    # oh-my-zsh.enable = true;
-    # oh-my-zsh.plugins = [
-    #   "sudo"
-    #   "gitfast"
-    #   "vim-interaction"
-    #   "docker"
-    #   "taskwarrior"
-    #   "tmux"
-    #   "fzf"
-    #   "cargo"
-    #   "brew"
-    #   "ripgrep"
-    #   "vi-mode"
-    #   "zoxide"
-    # ];
+    oh-my-zsh.enable = true;
+    oh-my-zsh.plugins = [ "sudo" "vim-interaction" "fzf" "vi-mode" "zoxide" ];
     shellAliases = {
       ls = "ls --color=auto -F";
       l = "exa --icons --git-ignore --git -F --extended";
@@ -88,14 +75,13 @@
       tg = "terragrunt";
       tf = "terraform";
       vim = "nvim";
-      vi="nvim";
+      vi = "nvim";
 
       fz =
         "fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'";
       grep = "rg";
       rm = "trash";
       du = "dust";
-      iam_check = "pipenv run python iam_check/iam_check.py";
 
       findport = "sudo lsof -iTCP -sTCP:LISTEN -n -P | grep";
       calc = "kalker";
