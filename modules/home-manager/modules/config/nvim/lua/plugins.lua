@@ -18,14 +18,33 @@ return require("packer").startup(function(use)
 	use({ "hrsh7th/cmp-path" })
 	use({ "hrsh7th/cmp-cmdline" })
 	use({ "hrsh7th/nvim-cmp" })
-	use({ "hrsh7th/cmp-vsnip" })
-	use({ "hrsh7th/vim-vsnip" })
+
+	--snippet stuff
+	use({
+		"rafamadriz/friendly-snippets",
+		"L3MON4D3/LuaSnip",
+		"saadparwaiz1/cmp_luasnip",
+		"hrsh7th/cmp-vsnip",
+		"hrsh7th/vim-vsnip",
+	})
+
+	-- git stuff
+	use({ "lewis6991/gitsigns.nvim" })
+
 	-- mason lsp management plugin
 	use({
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
+		"folke/neodev.nvim",
 	})
+
+	-- show pending keybinds
+	use({ "folke/which-key.nvim", opts = {} })
+
+	use({ "lukas-reineke/indent-blankline.nvim" })
+
+	use({ "j-hui/fidget.nvim", tag = "legacy", opts = {} })
 	-- code formating and more
 	use({ "jose-elias-alvarez/null-ls.nvim" })
 	-- Tree setup

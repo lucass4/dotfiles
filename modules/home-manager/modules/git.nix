@@ -3,6 +3,7 @@
     enable = true;
     userName = "Lucas Sant' Anna";
     userEmail = "76971778+lucass4@users.noreply.github.com";
+    signing.key = "56AE81F1E53DC9DC";
     signing.signByDefault = true;
 
     delta = {

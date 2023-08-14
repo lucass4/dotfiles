@@ -1,8 +1,5 @@
 { config, xdg, lib, pkgs, ... }: {
-  programs.neovim = {
-    enable = true;
-    plugins = with pkgs.vimPlugins; [ packer-nvim ];
-  };
+  programs.neovim = { enable = true; };
   xdg.configFile = {
     nvim = {
       source = ./config/nvim;
