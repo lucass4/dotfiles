@@ -9,7 +9,7 @@
       zsh
       reattach-to-user-namespace
       du-dust # better du
-      exa # better ls
+      eza # better ls
       neofetch # fancy system + hardware info
       tealdeer # fast tldr
       dogdns # replacement for dig
@@ -45,12 +45,10 @@
       krew
       kubernetes-helm
       colima
-      #devspace
       docker-client
 
       nerdfonts
       powerline-fonts
-      # alacritty
       tmux
 
       jc
@@ -66,6 +64,8 @@
       awscli2
       silver-searcher
       asdf-vm
+      taskwarrior
+      taskwarrior-tui
 
     ] ++ lib.optionals stdenv.isDarwin [
       coreutils # provides `dd` with --status=progress

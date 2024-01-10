@@ -15,7 +15,7 @@
   };
 
   outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
-    darwinConfigurations.PRODIGYMAC-QF29J406DT = darwin.lib.darwinSystem {
+    darwinConfigurations.lucas= darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       pkgs = import nixpkgs { system = "aarch64-darwin"; };
       modules = [
@@ -25,7 +25,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users."lucas.anna".imports = [ ./modules/home-manager ];
+            users."lucas".imports = [ ./modules/home-manager ];
           };
         }
       ];

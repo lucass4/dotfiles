@@ -18,9 +18,6 @@
     ./modules/languages/bash.nix
   ];
 
-  #  home.username = "lucas.anna";
-  #  home.homeDirectory = "/Users/lucas.anna";
-
   home.stateVersion = "22.05";
 
   # Let Home Manager install and manage itself.
@@ -54,10 +51,6 @@
     BROWSER = "brave";
     TERMINAL = "alacritty";
     HOMEBREW_NO_AUTO_UPDATE = 1;
-    TERRAGRUNT_DISABLE_PROFILE = "true";
   };
-
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "1password-cli" ];
 
 }

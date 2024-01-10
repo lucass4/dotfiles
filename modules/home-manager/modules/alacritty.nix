@@ -16,6 +16,11 @@
         };
       };
 
+      live_config_reload = true;
+
+      cursor.vi_mode_style = "Underline";
+
+      shell.program = "${pkgs.zsh}/bin/zsh";
       font = {
         normal.family = "SauceCodePro Nerd Font";
         normal.style = "Regular";
@@ -25,14 +30,7 @@
         size = 16.0;
       };
 
-      live_config_reload = true;
-
-      shell = { args = [ "--init-command" "echo; neofetch; echo" ]; };
-      shell.program = "${pkgs.zsh}/bin/zsh";
-      cursor.vi_mode_style = "Underline";
-      draw_bold_text_with_bright_colors = true;
-
-      colors = { };
+      colors = { draw_bold_text_with_bright_colors = true; };
     };
 
   };

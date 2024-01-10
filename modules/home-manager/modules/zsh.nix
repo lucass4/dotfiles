@@ -5,7 +5,7 @@
     enable = true;
     enableCompletion = true;
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     # let's the terminal track current working dir but only builds on linux
     enableVteIntegration = if pkgs.stdenvNoCC.isDarwin then false else true;
 

@@ -1,5 +1,5 @@
 { inputs, config, pkgs, ... }: {
-programs.zsh.enable = true;
+  programs.zsh.enable = true;
   environment = {
     loginShell = pkgs.zsh;
     systemPackages = [ pkgs.coreutils ];
@@ -7,7 +7,7 @@ programs.zsh.enable = true;
     pathsToLink = [ "/Applications" ];
   };
 
-  users.users."lucas.anna".home = "/Users/lucas.anna";
+  users.users."lucas".home = "/Users/lucas";
 
   nix.extraOptions = ''
     experimental-features = nix-command flakes
