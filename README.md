@@ -38,17 +38,18 @@ The project consists of the following key files and directories:
       - `nvim.nix`: Neovim editor configurations.
       - `tmux.nix`: TMUX terminal multiplexer configurations.
       - `zsh.nix`: Zsh shell configurations.
-    - `script.sh`: Utility script for various tasks.
+  
 
 ## Getting Started
 
-To start using this project, ensure you have Nix installed on your system. If you are on macOS, you will also need to have Homebrew installed for managing non-Nix packages.
+To start using this project, ensure you have Nix installed on your system. If you are on macOS, you must also have Homebrew installed to manage non-Nix packages.
 
-1. Clone the repository to your local machine.
-2. Navigate to the project directory.
-3. Run `nix-shell` to enter a shell with all dependencies loaded.
-4. For Darwin (macOS) systems, navigate to `modules/darwin` and follow the specific instructions there.
-5. For Nix and Home Manager configurations, navigate to `modules/home-manager` and follow the setup instructions.
+1. Install Nix https://nixos.org/download#nix-install-macos
+2. Clone the repository to your local machine.
+3. Navigate to the project directory.
+4. run `init.sh`
+5. For Darwin (macOS) systems, navigate to `modules/darwin`.
+6. For Nix and Home Manager configurations, navigate to `modules/home-manager`.
 
 ## Customization
 
@@ -60,7 +61,7 @@ You can customize the configurations to suit your needs:
 
 ## Contributing
 
-Contributions to improve the project are welcome. Please ensure to follow the project's coding standards and commit guidelines when submitting changes.
+Contributions to improve the project are welcome. Please follow the project's coding standards and commit guidelines when submitting changes.
 
 ## License
 
