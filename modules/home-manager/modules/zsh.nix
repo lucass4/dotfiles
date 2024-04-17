@@ -76,6 +76,7 @@
       tf = "terraform";
       vim = "nvim";
       vi = "nvim";
+      assume="source /opt/homebrew/bin/assume";
 
       fz =
         "fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'";
