@@ -4,7 +4,7 @@
     settings = {
       window = {
         title = "Alacritty";
-        opacity = 0.9;
+        opacity = 0.99;
 
         position = {
           x = 900;
@@ -27,7 +27,7 @@
         bold.style = "Bold";
         italic.style = "Italic";
         bold_italic.style = "Bold Italic";
-        size = 16.0;
+        size = 17.0;
       };
 
       colors = { draw_bold_text_with_bright_colors = true; };

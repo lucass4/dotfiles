@@ -31,8 +31,8 @@
     initExtra = ''
       # Setup zoxide
       eval "$(zoxide init zsh)"
+      path+=/Users/lucas/bin
 
-      #zprof
     '';
     sessionVariables = { };
     plugins = [{
@@ -48,11 +48,11 @@
     oh-my-zsh.enable = true;
     oh-my-zsh.plugins = [ "sudo" "vim-interaction" "fzf" "vi-mode" "zoxide" ];
     shellAliases = {
-      ls = "ls --color=auto -F";
-      l = "exa --icons --git-ignore --git -F --extended";
-      ll = "exa --icons --git-ignore --git -F --extended -l";
-      lt = "exa --icons --git-ignore --git -F --extended -T";
-      llt = "exa --icons --git-ignore --git -F --extended -l -T";
+      ls = "eza --icons --git-ignore --git -F --extended";
+      l = "eza --icons --git-ignore --git -F --extended";
+      ll = "eza --icons --git-ignore --git -F --extended -l";
+      lt = "eza --icons --git-ignore --git -F --extended -T";
+      llt = "eza --icons --git-ignore --git -F --extended -l -T";
       fd = "\\fd -H -t d"; # default search directories
       f = "\\fd -H"; # default search this dir for files ignoring .gitignore etc
       lf = "~/.config/lf/lfimg";

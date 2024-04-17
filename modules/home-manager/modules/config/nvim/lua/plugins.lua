@@ -9,7 +9,7 @@ return require("packer").startup(function(use)
 	-- Base for many nvim plugins and also dependency for telescope
 	use({ "nvim-lua/plenary.nvim" })
 	-- telescope-nvim # fuzzy finder for neovim
-	use({ "nvim-telescope/telescope.nvim", tag = "0.1.0", requires = { { "nvim-lua/plenary.nvim" } } })
+	use({ "nvim-telescope/telescope.nvim", tag = "0.1.6", requires = { { "nvim-lua/plenary.nvim" } } })
 	-- Tree-sitter is a parser generator tool and an incremental parsing library
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	-- LSP configuration

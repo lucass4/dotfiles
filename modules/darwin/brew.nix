@@ -21,6 +21,7 @@
       "warrensbox/tap"
       "homebrew/cask-fonts"
       "aws/tap"
+      "common-fate/granted"
     ];
 
     casks = [
@@ -38,6 +39,7 @@
       "spotify"
       "raycast"
       "alacritty"
+      "rancher"
     ];
 
     masApps = { };
@@ -96,6 +98,8 @@
       "just"
       "vcluster"
       "eks-node-viewer"
+      "pipx"
+      "granted"
     ];
   };
 }
