@@ -24,7 +24,6 @@
   programs.home-manager.enable = true;
   programs.tmux.enable = true;
   manual.manpages.enable = false;
-  home.sessionPath = [ "/Users/lucas/.local/bin" ];
 
   home.sessionVariables = {
     LANG = "en_CA.UTF-8";
