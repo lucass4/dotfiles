@@ -100,6 +100,8 @@
       "eks-node-viewer"
       "pipx"
       "granted"
+      "kubeseal"
+      "kustomize"
     ];
   };
 }

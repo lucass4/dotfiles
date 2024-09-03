@@ -67,6 +67,7 @@
       taskwarrior
       taskwarrior-tui
       trufflehog
+      sops
 
     ] ++ lib.optionals stdenv.isDarwin [
       coreutils # provides `dd` with --status=progress

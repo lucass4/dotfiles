@@ -68,7 +68,7 @@
       gc = "git commit";
       gco = "git checkout";
       gcl = "git clone";
-      gcm = "git checkout master";
+      gcm = "git checkout main";
       d = "docker";
       dc = "docker compose";
       k = "kubectl";
