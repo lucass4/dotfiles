@@ -1,6 +1,6 @@
 { config, pkgs, lib, libs, ... }: {
   programs.alacritty = {
-    enable = true;
+    enable = false;
     settings = {
       window = {
         title = "Alacritty";

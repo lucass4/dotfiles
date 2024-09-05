@@ -5,73 +5,81 @@
 
   home.packages = with pkgs;
     [
-      bash
-      zsh
-      reattach-to-user-namespace
-      du-dust # better du
-      eza # better ls
-      neofetch # fancy system + hardware info
-      tealdeer # fast tldr
-      dogdns # replacement for dig
-      ripgrep # replacement for grep
-      fd # replacement for find
-      bat # replacement for cat
-      trash-cli # a better rm tool
-      zoxide # better jump written in Rust
-      spotify-tui
+     # Shells and terminal utilities
+    bash
+    zsh
+    reattach-to-user-namespace
+    tmux
 
-      git
-      gitAndTools.gh
-      git-crypt
-      git-lfs
-      hub
+    # Command replacements
+    du-dust # Better du
+    eza # Better ls
+    neofetch # Fancy system + hardware info
+    tealdeer # Fast tldr
+    dogdns # Replacement for dig
+    ripgrep # Replacement for grep
+    fd # Replacement for find
+    bat # Replacement for cat
+    trash-cli # A better rm tool
+    zoxide # Better jump, written in Rust
 
-      fzf
-      tree
-      httpstat
-      curlie
-      wget
-      speedtest-cli
-      cloc
+    # Git and version control tools
+    git
+    gitAndTools.gh
+    git-crypt
+    git-lfs
+    hub
 
-      # Compression
-      zip
-      pigz
-      lz4
+    # File navigation and network tools
+    fzf
+    tree
+    httpstat
+    curlie
+    wget
+    speedtest-cli
+    cloc
 
-      # Kubernetes 
-      kubectx
-      kubectl
-      krew
-      kubernetes-helm
-      colima
-      docker-client
+    # Compression tools
+    zip
+    pigz
+    lz4
 
-      nerdfonts
-      powerline-fonts
-      tmux
+    # Kubernetes and Docker tools
+    kubectx
+    kubectl
+    krew
+    kubernetes-helm
+    colima
+    docker-client
 
-      jc
-      yq
-      jq
+    # Fonts
+    nerdfonts
+    powerline-fonts
 
-      pgcli
-      page
-      gnupg
-      graphviz
-      watch
-      reattach-to-user-namespace
-      awscli2
-      silver-searcher
-      asdf-vm
-      taskwarrior
-      taskwarrior-tui
-      trufflehog
-      sops
+    # Parsing and text manipulation
+    jc
+    yq
+    jq
 
+    # Database and productivity tools
+    pgcli
+    page
+    gnupg
+    graphviz
+    watch
+    awscli2
+    silver-searcher
+    asdf-vm
+    taskwarrior3
+    taskwarrior-tui
+
+    # Security and searching
+    trufflehog
+    sops 
     ] ++ lib.optionals stdenv.isDarwin [
       coreutils # provides `dd` with --status=progress
     ];
+
   programs.dircolors = { enable = true; };
 
   programs.zoxide = {
@@ -87,5 +95,4 @@
     defaultCommand = "fd --type f --hidden --exclude .git";
     fileWidgetCommand = "fd --type f"; # for when ctrl-t is pressed
   };
-
 }

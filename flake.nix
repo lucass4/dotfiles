@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of Lucas santanna";
+  description = "Home Manager configuration of Lucas Santanna";
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
@@ -14,10 +14,10 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
-    darwinConfigurations.lucas= darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      pkgs = import nixpkgs { system = "aarch64-darwin"; };
+  outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: rec {
+    # Helper function to create Darwin configurations
+    createDarwinConfig = { name, system, username }: darwin.lib.darwinSystem {
+      pkgs = import nixpkgs { inherit system; };
       modules = [
         ./modules/darwin
         home-manager.darwinModules.home-manager
@@ -25,10 +25,27 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users."lucas".imports = [ ./modules/home-manager ];
+            users."${username}".imports = [ ./modules/home-manager ];
           };
         }
       ];
     };
+
+    darwinConfigurations = {
+      # Configuration matching the expected system name
+      "lucass-MacBook-Pro" = createDarwinConfig {
+        name = "lucass-MacBook-Pro";  # Matching the expected system name
+        system = "x86_64-darwin";      # Change to "aarch64-darwin" if needed
+        username = "lucas";
+      };
+
+      # Example configuration for an ARM architecture, adjust as needed
+      "lucass-ARM-MacBook" = createDarwinConfig {
+        name = "lucass-ARM-MacBook";
+        system = "aarch64-darwin";
+        username = "lucas";
+      };
+    };
   };
 }
+
