@@ -57,7 +57,6 @@
       llt = "eza --icons --git-ignore --git -F --extended -l -T";
       fd = "\\fd -H -t d"; # default search directories
       f = "\\fd -H"; # default search this dir for files ignoring .gitignore etc
-      lf = "~/.config/lf/lfimg";
       g = "git";
       gst = "git status -s";
       kn = "kubectl config set-context --current --namespace";
@@ -87,11 +86,6 @@
       du = "dust";
 
       findport = "sudo lsof -iTCP -sTCP:LISTEN -n -P | grep";
-      calc = "kalker";
-      df = "duf";
-      # search for a note and with ctrl-n, create it if not found
-      # add subdir as needed like "n meetings" or "n wiki"
-      n = "zk edit --interactive";
     } // pkgs.lib.optionalAttrs pkgs.stdenv.isDarwin {
       # Figure out the uniform type identifiers and uri schemes of a file (must specify the file)
       # for use in SwiftDefaultApps
@@ -104,16 +98,9 @@
       dwclean =
         "pushd ~; sudo nix-env --delete-generations +7 --profile /nix/var/nix/profiles/system; sudo nix-collect-garbage --delete-older-than 30d ; nix store optimise ; popd";
       dwupcheck =
-        "pushd ~/.config/nixpkgs ; nix flake update ; darwin-rebuild build --flake ~/.config/nixpkgs/.#$(hostname -s) && nix store diff-closures /nix/var/nix/profiles/system ~/.config/nixpkgs/result; brew update >& /dev/null && brew upgrade -n -g; popd"; # todo: prefer nvd?
-      # i use the zsh shell out in case anyone blindly copies this into their bash or fish profile since syntax is zsh specific
+        "pushd ~/.config/nixpkgs ; nix flake update ; darwin-rebuild build --flake ~/.config/nixpkgs/.#$(hostname -s) && nix store diff-closures /nix/var/nix/profiles/system ~/.config/nixpkgs/result; brew update >& /dev/null && brew upgrade -n -g; popd"; 
       dwshowupdates = ''
         zsh -c "nix store diff-closures /nix/var/nix/profiles/system-*-link(om[2]) /nix/var/nix/profiles/system-*-link(om[1])"'';
-    } // pkgs.lib.optionalAttrs pkgs.stdenv.isLinux {
-      hmswitch = ''
-        nix-shell -p home-manager --run "home-manager switch --flake ~/.config/nixpkgs/.#$(hostname -s)"'';
-      noupdate = "pushd ~/.config/nixpkgs; nix flake update; popd; noswitch";
-      noswitch =
-        "pushd ~; sudo cachix watch-exec zmre nixos-rebuild -- switch --flake ~/.config/nixpkgs/.# ; popd";
-    };
+    }; 
   };
 }
