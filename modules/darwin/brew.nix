@@ -25,7 +25,6 @@
     ];
 
     casks = [
-      "dash" # offline developer docs
       "discord"
       "gpg-suite"
       "pgadmin4"
@@ -39,7 +38,6 @@
       "spotify"
       "raycast"
       "alacritty"
-      "rancher"
     ];
 
     masApps = { };
