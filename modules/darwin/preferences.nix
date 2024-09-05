@@ -2,7 +2,7 @@
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
   #fonts.fontDir.enable = true; # DANGER
-  fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ "Meslo" ]; }) ];
+  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "Meslo" ]; }) ];
   services.nix-daemon.enable = true;
   system.defaults = {
     finder.AppleShowAllExtensions = true;

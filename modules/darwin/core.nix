@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }: {
+{finputs, config, pkgs, ... }: {
   programs.zsh.enable = true;
   environment = {
     loginShell = pkgs.zsh;
