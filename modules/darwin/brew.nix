@@ -29,6 +29,7 @@
       "warrensbox/tap"
       "aws/tap"
       "common-fate/granted"
+      "aquasecurity/trivy"
     ];
 
     # Homebrew casks
@@ -121,6 +122,7 @@
       "ca-certificates"
       "go"
       "jpeg-turbo"
+      "trivy"
     ];
   };
 }
