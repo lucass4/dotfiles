@@ -45,6 +45,7 @@
       "spotify"
       "raycast"
       "alacritty"
+      "arc"
     ];
 
     # Homebrew MAS apps (currently empty)
