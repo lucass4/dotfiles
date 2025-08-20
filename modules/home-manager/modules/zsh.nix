@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }: {
-
   # Enable Starship prompt and Zsh integration
   programs.starship = {
     enable = true;
@@ -14,9 +13,6 @@
     # Autosuggestions and syntax highlighting
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-
-    # VTE integration for tracking current working directory (Linux only)
-    enableVteIntegration = !pkgs.stdenvNoCC.isDarwin;
 
     # History settings
     history = {
@@ -43,9 +39,12 @@
 
     # Additional Zsh initialization commands
     initExtra = ''
-      # Setup zoxide
+      # Setup zoxidec
       eval "$(zoxide init zsh)"
       path+=/Users/lucas/bin
+
+      export SDKMAN_DIR="$HOME/.sdkman"
+      [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
     '';
 
     # Session variables
@@ -95,6 +94,7 @@
       gl = "git pull";
       gp = "git push";
       gst = "git status -s";
+      rpassword="tr -dc A-Za-z0-9 </dev/urandom | head -c 20 |  pbcopy";
 
       # Docker and Kubernetes
       d = "docker";

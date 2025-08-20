@@ -40,8 +40,8 @@
       };
 
       # Example configuration for an ARM architecture, adjust as needed
-      "lucass-ARM-MacBook" = createDarwinConfig {
-        name = "lucass-ARM-MacBook";
+      "fg-lstanaanna" = createDarwinConfig {
+        name = "fg-lstanaanna";
         system = "aarch64-darwin";
         username = "lucas";
       };

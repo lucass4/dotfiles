@@ -10,6 +10,7 @@
     zsh
     reattach-to-user-namespace
     tmux
+    zellij
 
     # Command replacements
     du-dust # Better du
@@ -29,6 +30,7 @@
     git-crypt
     git-lfs
     hub
+    cachix
 
     # File navigation and network tools
     fzf
@@ -53,13 +55,12 @@
     docker-client
 
     # Fonts
-    nerdfonts
     powerline-fonts
 
     # Parsing and text manipulation
     jc
-    yq
-    jq
+    # GHA local exec
+    act
 
     # Database and productivity tools
     pgcli

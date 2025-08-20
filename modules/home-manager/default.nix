@@ -18,12 +18,13 @@
     ./modules/languages/bash.nix
   ];
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.05";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   programs.tmux.enable = true;
   manual.manpages.enable = false;
+
 
   home.sessionVariables = {
     LANG = "en_CA.UTF-8";

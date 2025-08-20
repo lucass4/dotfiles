@@ -1,10 +1,9 @@
 { inputs, config, pkgs, ... }: {
   system.keyboard.enableKeyMapping = true;
+  system.primaryUser = "lucas";
+ ids.gids.nixbld = 350;
   system.keyboard.remapCapsLockToEscape = true;
-  #fonts.fontDir.enable = true; # DANGER
-  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "Meslo" ]; }) ];
-  services.nix-daemon.enable = true;
-  system.defaults = {
+system.defaults = {
     finder.AppleShowAllExtensions = true;
     finder._FXShowPosixPathInTitle = true;
     dock.autohide = true;

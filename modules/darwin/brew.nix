@@ -46,6 +46,8 @@
       "raycast"
       "alacritty"
       "arc"
+      "diffmerge"
+      "visual-studio-code"
     ];
 
     # Homebrew MAS apps (currently empty)
@@ -104,6 +106,7 @@
       "fontconfig"
       "goreleaser"
       "jq"
+      "yq"
       "just"
       "pipx"
 
@@ -124,6 +127,9 @@
       "go"
       "jpeg-turbo"
       "trivy"
+      "devspace"
+      "copier"
+      "gemini-cli"
     ];
   };
 }

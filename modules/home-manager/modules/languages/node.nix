@@ -1,1 +1,1 @@
-{ config, lib, pkgs, ... }: { home.packages = with pkgs; [ nodejs-18_x yarn ]; }
+{ config, lib, pkgs, ... }: { home.packages = with pkgs; [ nodejs_24 yarn ]; }
