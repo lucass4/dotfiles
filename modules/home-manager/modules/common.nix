@@ -11,6 +11,7 @@
     reattach-to-user-namespace
     tmux
     zellij
+    helix
 
     # Command replacements
     du-dust # Better du

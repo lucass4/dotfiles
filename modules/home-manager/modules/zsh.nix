@@ -38,7 +38,7 @@
     '';
 
     # Additional Zsh initialization commands
-    initExtra = ''
+    initContent= ''
       # Setup zoxidec
       eval "$(zoxide init zsh)"
       path+=/Users/lucas/bin
