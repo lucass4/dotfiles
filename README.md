@@ -1,76 +1,46 @@
+# My Dotfiles
 
-# Project Readme
+[![NixOS](https://img.shields.io/badge/NixOS-unstable-5277C3.svg?style=flat-square&logo=nixos)](https://nixos.org)
+[![Home Manager](https://img.shields.io/badge/Home%20Manager-unstable-5277C3.svg?style=flat-square&logo=homemanager)](https://github.com/nix-community/home-manager)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-## Overview
+These are my personal dotfiles, managed with Nix and Home Manager. They are designed to be modular, reproducible, and easy to customize.
 
-This project utilizes the Nix ecosystem to manage and configure a development environment, providing a reproducible and declarative setup for various programming languages, tools, and applications. It leverages `flake.nix` for dependency management and includes configurations for a range of development tools and languages.
+## Features
 
-## Project Structure
+- **Declarative:** The entire system is configured declaratively with Nix.
+- **Reproducible:** The `flake.lock` file ensures that the same versions of all packages are used every time.
+- **Modular:** The configuration is split into modules, making it easy to add or remove functionality.
+- **Cross-platform:** The dotfiles are designed to work on both Linux and macOS.
 
-The project consists of the following key files and directories:
+## Installation
 
-- `flake.lock`: Lock file to ensure reproducible builds.
-- `flake.nix`: Entry point for Nix Flakes, specifying project dependencies.
-- `modules/`: Contains all module definitions for the system.
-  - `darwin/`: Modules specific to Darwin (macOS) systems.
-    - `brew.nix`: Homebrew package declarations.
-    - `core.nix`: Core system configurations for Darwin.
-    - `default.nix`: Entry point for Darwin-specific modules.
-    - `preferences.nix`: User preferences and settings for Darwin.
-  - `home-manager/`: Home Manager configurations for user-level management.
-    - `default.nix`: Entry point for Home Manager configurations.
-    - `modules/`: Additional modules for specific tools and languages.
-      - `alacritty.nix`: Configuration for the Alacritty terminal emulator.
-      - `common.nix`: Shared configurations across various modules.
-      - `config/nvim`: Configurations for Neovim.
-      - `git.nix`: Git configuration and tools.
-      - `languages/`: Language-specific configurations.
-        - `bash.nix`: Bash shell configurations.
-        - `docker.nix`: Docker configurations and tools.
-        - `go.nix`: Go language environment setup.
-        - `lua.nix`: Lua language configurations.
-        - `markup.nix`: Markup languages like HTML, XML configurations.
-        - `nix.nix`: Nix language configurations and tools.
-        - `node.nix`: Node.js and npm configurations.
-        - `python.nix`: Python language environment setup.
-        - `rust.nix`: Rust language configurations.
-        - `terraform.nix`: Terraform configurations and tools.
-      - `nvim.nix`: Neovim editor configurations.
-      - `tmux.nix`: TMUX terminal multiplexer configurations.
-      - `zsh.nix`: Zsh shell configurations.
-  
+1.  Install [Nix](https://nixos.org/download.html).
+2.  Clone this repository to `~/.dotfiles`.
+3.  Run the `init.sh` script to install the dotfiles.
 
-## Getting Started
+```bash
+./init.sh
+```
 
-To start using this project, ensure you have Nix installed on your system. If you are on macOS, you must also have Homebrew installed to manage non-Nix packages.
+## Usage
 
-1. Install Nix https://nixos.org/download#nix-install-macos
-2. Clone the repository to your local machine.
-3. Navigate to the project directory.
-4. run `init.sh`
-5. For Darwin (macOS) systems, navigate to `modules/darwin`.
-6. For Nix and Home Manager configurations, navigate to `modules/home-manager`.
+After the installation is complete, the dotfiles will be automatically sourced by your shell. You can customize the configuration by editing the `.nix` files in the `modules` directory.
 
-## Customization
+## Structure
 
-You can customize the configurations to suit your needs:
+The project is structured as follows:
 
-- Edit `*.nix` files under `modules/home-manager/modules/` to change user-level configurations.
-- Modify `modules/darwin/*.nix` for system-level configurations on Darwin (macOS).
-- Add or remove language-specific modules as needed in `modules/home-manager/modules/languages/`.
+- `flake.nix`: The main entry point for the dotfiles.
+- `modules/`: Contains the configuration modules.
+  - `darwin/`: Modules specific to macOS.
+  - `home-manager/`: Home Manager modules for user-level configuration.
+- `init.sh`: The installation script.
 
 ## Contributing
 
-Contributions to improve the project are welcome. Please follow the project's coding standards and commit guidelines when submitting changes.
+Contributions are welcome! Please open an issue or a pull request if you have any suggestions or improvements.
 
 ## License
 
-MIT License
-
-Copyright (c) [2024] [Lucas Sant' Anna]
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
