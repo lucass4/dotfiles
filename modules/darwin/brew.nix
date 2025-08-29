@@ -20,7 +20,6 @@
     # Homebrew taps
     taps = [
       "homebrew/bundle"
-      "homebrew/cask-fonts"
       "homebrew/services"
       "koekeishiya/formulae"
       "fujiapple852/trippy"
@@ -39,7 +38,6 @@
       "swiftdefaultappsprefpane"
       "default-folder-x"
       "discord"
-      "wireshark"
       "font-fira-code"
       "1password"
       "spotify"
@@ -57,7 +55,6 @@
     brews = [
       # Networking and monitoring tools
       "trippy"           # An mtr alternative
-      "wireshark"
       "eks-node-viewer"
 
       # Development and language tools
@@ -130,6 +127,7 @@
       "devspace"
       "copier"
       "gemini-cli"
+      "skopeo"
     ];
   };
 }

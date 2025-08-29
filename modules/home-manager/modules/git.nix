@@ -26,7 +26,7 @@
 
       push.autoSetupRemote = true;
 
-      core.editor = "nvim";
+      core.editor = "hx";
       core.fileMode = false;
       core.ignorecase = false;
       url."git@github.com:".insteadOf = "https://github.com/";
