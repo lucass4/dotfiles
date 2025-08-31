@@ -11,4 +11,7 @@
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
+  nix.settings = {
+        download-buffer-size = 67108864;
+  };
 }

@@ -16,13 +16,15 @@
         };
       };
 
-      live_config_reload = true;
+      general = {
+        live_config_reload = true;
+      };
 
       cursor.vi_mode_style = "Underline";
 
-      shell.program = "${pkgs.zsh}/bin/zsh";
+      terminal.shell.program = "${pkgs.zsh}/bin/zsh";
       font = {
-        normal.family = "SauceCodePro Nerd Font";
+        normal.family = "FiraCode Nerd Font";
         normal.style = "Regular";
         bold.style = "Bold";
         italic.style = "Italic";

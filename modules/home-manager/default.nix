@@ -4,8 +4,7 @@
     ./modules/zsh.nix
     ./modules/common.nix
     ./modules/git.nix
-    ./modules/nvim.nix
-    ./modules/tmux.nix
+    ./modules/helix.nix
     ./modules/languages/docker.nix
     ./modules/languages/go.nix
     ./modules/languages/lua.nix
@@ -22,17 +21,15 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  programs.tmux.enable = true;
   manual.manpages.enable = false;
-
 
   home.sessionVariables = {
     LANG = "en_CA.UTF-8";
     LC_ALL = "en_CA.UTF-8";
     KEYTIMEOUT = 1;
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-    GIT_EDITOR = "nvim";
+    EDITOR = "hx";
+    VISUAL = "hx";
+    GIT_EDITOR = "hx";
     LS_COLORS =
       "no=00:fi=00:di=01;34:ln=35;40:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=01;32:*.cmd=01;32:*.exe=01;32:*.com=01;32:*.btm=01;32:*.bat=01;32:";
     LSCOLORS = "ExfxcxdxCxegedabagacad";

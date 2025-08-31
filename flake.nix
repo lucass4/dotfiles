@@ -3,7 +3,11 @@
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  #  nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+     nixpkgs.url = "github:NixOS/nixpkgs/master";
+
+
 
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -12,12 +16,18 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    helix-themes = {
+      url = "github:eureka-cpu/helix-themes.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: rec {
     # Helper function to create Darwin configurations
     createDarwinConfig = { name, system, username }: darwin.lib.darwinSystem {
       pkgs = import nixpkgs { inherit system; };
+      specialArgs = { inherit inputs; }; # Pass inputs to modules
       modules = [
         ./modules/darwin
         home-manager.darwinModules.home-manager
@@ -26,6 +36,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             users."${username}".imports = [ ./modules/home-manager ];
+            extraSpecialArgs = { inherit inputs; }; # Pass inputs to home-manager modules
           };
         }
       ];
