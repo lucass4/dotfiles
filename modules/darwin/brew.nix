@@ -1,23 +1,22 @@
-{ inputs, config, pkgs, ... }: {
-  
+# { inputs, config, pkgs, ... }: # This line is just for context
+
+{
   # Homebrew configuration
   homebrew = {
+    onActivation = {
+      upgrade = true;
+      cleanup = "zap" ;
+      autoUpdate = true;
+    };
     enable = true;
+
     
+    #cleanup = "zap"; # Options: "zap", "uninstall", "none"
+
     # Cask arguments
     caskArgs.no_quarantine = true;
 
-    # Activation options
-    onActivation = {
-      autoUpdate = false;
-      upgrade = false;
-      cleanup = "zap"; # Options: "zap" removes anything not listed here; "uninstall" removes installed items
-    };
-
-    # Global options
-    global.brewfile = true;
-
-    # Homebrew taps
+    # Homebrew taps (no changes here)
     taps = [
       "homebrew/bundle"
       "homebrew/services"
@@ -31,10 +30,9 @@
       "aquasecurity/trivy"
     ];
 
-    # Homebrew casks
+    # Homebrew casks (no changes here)
     casks = [
       "gpg-suite"
-      "pgadmin4"
       "swiftdefaultappsprefpane"
       "default-folder-x"
       "discord"
@@ -48,13 +46,13 @@
       "visual-studio-code"
     ];
 
-    # Homebrew MAS apps (currently empty)
+    # Homebrew MAS apps (no changes here)
     masApps = { };
 
-    # Homebrew brews - grouped logically
+    # Homebrew brews (no changes here)
     brews = [
       # Networking and monitoring tools
-      "trippy"           # An mtr alternative
+      "trippy"
       "eks-node-viewer"
 
       # Development and language tools
@@ -68,7 +66,6 @@
       "node"
       "openjdk"
       "pcre2"
-      "postgresql@14"
       "readline"
       "tree-sitter"
       "virtualenv"
@@ -131,4 +128,3 @@
     ];
   };
 }
-
