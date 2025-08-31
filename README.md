@@ -17,25 +17,29 @@ These are my personal dotfiles, managed with Nix and Home Manager. They are desi
 
 1.  Install [Nix](https://nixos.org/download.html).
 2.  Clone this repository to `~/.dotfiles`.
-3.  Run the `init.sh` script to install the dotfiles.
+3.  Run `make setup` to install Homebrew and Nix.
 
 ```bash
-./init.sh
+make setup
 ```
 
 ## Usage
 
-After the installation is complete, the dotfiles will be automatically sourced by your shell. You can customize the configuration by editing the `.nix` files in the `modules` directory.
+After the initial setup, you can use the `Makefile` to manage your dotfiles:
+
+*   `make setup`: Installs Homebrew and Nix (if not already present).
+*   `make build`: Applies your Nix configuration using `darwin-rebuild switch`. This command automatically determines your hostname to apply the correct configuration.
+*   `make clean`: Removes the `result` symlink created by Nix builds.
 
 ## Structure
 
 The project is structured as follows:
 
 - `flake.nix`: The main entry point for the dotfiles.
+- `Makefile`: Contains commands for setup, building, and cleaning the configuration.
 - `modules/`: Contains the configuration modules.
   - `darwin/`: Modules specific to macOS.
   - `home-manager/`: Home Manager modules for user-level configuration.
-- `init.sh`: The installation script.
 
 ## Contributing
 
