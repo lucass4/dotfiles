@@ -1,11 +1,9 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
 
-  home.packages =
-    with pkgs;
+  home.packages = with pkgs;
     [
       # Shells and terminal utilities
       bash
@@ -78,14 +76,11 @@
       # Security and searching
       trufflehog
       sops
-    ]
-    ++ lib.optionals stdenv.isDarwin [
+    ] ++ lib.optionals stdenv.isDarwin [
       coreutils # provides `dd` with --status=progress
     ];
 
-  programs.dircolors = {
-    enable = true;
-  };
+  programs.dircolors = { enable = true; };
 
   programs.zoxide = {
     enable = true;

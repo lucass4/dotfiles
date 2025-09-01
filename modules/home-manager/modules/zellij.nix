@@ -1,8 +1,5 @@
-{ config, xdg, lib, pkgs, ... }:
-{
-  programs.zellij = {
-    enable = true;
-  };
+{ config, xdg, lib, pkgs, ... }: {
+  programs.zellij = { enable = true; };
 
   # copy zellij config, until it is propery supported by home-manager
   xdg.configFile."zellij/config.kdl".text = ''

@@ -1,4 +1,4 @@
-{inputs, config, pkgs, ... }: {
+{ inputs, config, pkgs, ... }: {
   programs.zsh.enable = true;
   environment = {
     systemPackages = [ pkgs.coreutils ];
@@ -11,7 +11,5 @@
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
-  nix.settings = {
-        download-buffer-size = 67108864;
-  };
+  nix.settings = { download-buffer-size = 67108864; };
 }

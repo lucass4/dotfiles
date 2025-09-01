@@ -1,9 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
-{
+{ pkgs, inputs, ... }: {
   programs.helix = {
     enable = true;
 
@@ -38,13 +33,7 @@
         cursorcolumn = false;
 
         # Gutters to display: Available are diagnostics and diff and line-numbers and spacer, note that diagnostics also includes other features like breakpoints, 1-width padding will be inserted if gutters is non-empty
-        gutters = [
-          "diagnostics"
-          "spacer"
-          "line-numbers"
-          "spacer"
-          "diff"
-        ];
+        gutters = [ "diagnostics" "spacer" "line-numbers" "spacer" "diff" ];
 
         # Enable automatic pop up of auto-completion
         auto-completion = true;
@@ -112,10 +101,7 @@
 
         # STATUS LINE SECTION
         statusline = {
-          left = [
-            "mode"
-            "spinner"
-          ];
+          left = [ "mode" "spinner" ];
           center = [ "file-name" ];
           right = [
             "diagnostics"
@@ -134,9 +120,9 @@
         auto-pairs = true;
 
         cursor-shape = {
-           insert = "bar";
-           normal = "block";
-           select = "underline";
+          insert = "bar";
+          normal = "block";
+          select = "underline";
         };
         file-picker.hidden = false;
 
@@ -156,7 +142,8 @@
         "space".f = [
           ":sh rm -f /tmp/files2open"
           ":set mouse false"
-          ":insert-output yazi \"%{buffer_name}\" --chooser-file=/tmp/files2open"
+          ''
+            :insert-output yazi "%{buffer_name}" --chooser-file=/tmp/files2open''
           ":redraw"
           ":set mouse true"
           ":open /tmp/files2open"

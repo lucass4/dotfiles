@@ -9,7 +9,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    
+
     # Autosuggestions and syntax highlighting
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
@@ -38,22 +38,22 @@
     '';
 
     # Additional Zsh initialization commands
-    initContent= ''
-      # Setup zoxidec
-      eval "$(zoxide init zsh)"
-      path+=/Users/lucas/bin
-      export GPG_TTY=$(tty)
+    initContent = ''
+        # Setup zoxidec
+        eval "$(zoxide init zsh)"
+        path+=/Users/lucas/bin
+        export GPG_TTY=$(tty)
 
-      export SDKMAN_DIR="$HOME/.sdkman"
-      [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+        export SDKMAN_DIR="$HOME/.sdkman"
+        [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-     function y() {
-    	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-    	yazi "$@" --cwd-file="$tmp"
-    	IFS= read -r -d \'\' cwd < "$tmp"
-    	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-    	rm -f -- "$tmp"
-     }
+       function y() {
+      	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+      	yazi "$@" --cwd-file="$tmp"
+      	IFS= read -r -d \'\' cwd < "$tmp"
+      	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+      	rm -f -- "$tmp"
+       }
     '';
 
     # Session variables
@@ -99,11 +99,12 @@
       gcl = "git clone";
       gcm = "git checkout main";
       gd = "git diff";
-      glo = "git log --pretty=format:'%C(yellow)%h %Cred%ar %Cblue%an%Cgreen%d %Creset%s' --date=short";
+      glo =
+        "git log --pretty=format:'%C(yellow)%h %Cred%ar %Cblue%an%Cgreen%d %Creset%s' --date=short";
       gl = "git pull";
       gp = "git push";
       gst = "git status -s";
-      rpassword="tr -dc A-Za-z0-9 </dev/urandom | head -c 20 |  pbcopy";
+      rpassword = "tr -dc A-Za-z0-9 </dev/urandom | head -c 20 |  pbcopy";
 
       # Docker and Kubernetes
       d = "docker";
@@ -117,16 +118,22 @@
       vim = "hx";
       vi = "hx";
       assume = "source /opt/homebrew/bin/assume";
-      fz = "fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'";
+      fz =
+        "fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'";
       findport = "sudo lsof -iTCP -sTCP:LISTEN -n -P | grep";
 
     } // lib.optionalAttrs pkgs.stdenv.isDarwin {
       # macOS-specific commands
-      dwupdate = "pushd ~/.config/nixpkgs ; nix flake update ; /opt/homebrew/bin/brew update; popd ; dwswitch ; /opt/homebrew/bin/brew upgrade ; /opt/homebrew/bin/brew upgrade --cask --greedy; dwshowupdates; popd";
-      dwswitch = "pushd ~; cachix watch-exec zmre darwin-rebuild -- switch --flake ~/.config/nixpkgs/.#$(hostname -s) ; popd";
-      dwswitchx = "pushd ~; darwin-rebuild switch --flake ~/.config/nixpkgs/.#$(hostname -s) ; popd";
-      dwclean = "pushd ~; sudo nix-env --delete-generations +7 --profile /nix/var/nix/profiles/system; sudo nix-collect-garbage --delete-older-than 30d ; nix store optimise ; popd";
-      dwupcheck = "pushd ~/.config/nixpkgs ; nix flake update ; darwin-rebuild build --flake ~/.config/nixpkgs/.#$(hostname -s) && nix store diff-closures /nix/var/nix/profiles/system ~/.config/nixpkgs/result; brew update >& /dev/null && brew upgrade -n -g; popd";
+      dwupdate =
+        "pushd ~/.config/nixpkgs ; nix flake update ; /opt/homebrew/bin/brew update; popd ; dwswitch ; /opt/homebrew/bin/brew upgrade ; /opt/homebrew/bin/brew upgrade --cask --greedy; dwshowupdates; popd";
+      dwswitch =
+        "pushd ~; cachix watch-exec zmre darwin-rebuild -- switch --flake ~/.config/nixpkgs/.#$(hostname -s) ; popd";
+      dwswitchx =
+        "pushd ~; darwin-rebuild switch --flake ~/.config/nixpkgs/.#$(hostname -s) ; popd";
+      dwclean =
+        "pushd ~; sudo nix-env --delete-generations +7 --profile /nix/var/nix/profiles/system; sudo nix-collect-garbage --delete-older-than 30d ; nix store optimise ; popd";
+      dwupcheck =
+        "pushd ~/.config/nixpkgs ; nix flake update ; darwin-rebuild build --flake ~/.config/nixpkgs/.#$(hostname -s) && nix store diff-closures /nix/var/nix/profiles/system ~/.config/nixpkgs/result; brew update >& /dev/null && brew upgrade -n -g; popd";
       dwshowupdates = ''
         zsh -c "nix store diff-closures /nix/var/nix/profiles/system-*-link(om[2]) /nix/var/nix/profiles/system-*-link(om[1])" '';
     };

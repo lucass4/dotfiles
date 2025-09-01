@@ -29,9 +29,7 @@
     };
 
     # Dock-specific settings.
-    dock = {
-      autohide = true;
-    };
+    dock = { autohide = true; };
   };
 
   # This value should not be changed after the first build.
