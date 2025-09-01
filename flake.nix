@@ -20,6 +20,10 @@
       url = "github:dj95/zjstatus";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zj-quit = {
+      url = "github:dj95/zj-quit";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, darwin, ... }:
@@ -32,9 +36,15 @@
         "fg-lstanaanna" = "aarch64-darwin";
       };
 
+      # Common overlay for zjstatus and zj-quit
+      commonOverlay = final: prev: {
+        zjstatus = inputs.zjstatus.packages.${prev.system}.default;
+        zj-quit = inputs.zj-quit.packages.${prev.system}.default;
+      };
+
       # Common modules for all systems
-      commonModules = system: [
-        { nixpkgs.overlays = [ (final: prev: { zjstatus = inputs.zjstatus.packages.${system}.default; }) ]; }
+      commonModules = [
+        { nixpkgs.overlays = [ commonOverlay ]; }
         ./modules/darwin
         home-manager.darwinModules.home-manager
         {
@@ -54,7 +64,7 @@
         darwin.lib.darwinSystem {
           inherit system;
           specialArgs = { inherit inputs; };
-          modules = commonModules system;
+          modules = commonModules;
         }
       ) hosts;
 
@@ -62,11 +72,7 @@
         let
           pkgs = import nixpkgs {
             inherit system;
-            overlays = [
-              (final: prev: {
-                zjstatus = inputs.zjstatus.packages.${prev.system}.default;
-              })
-            ];
+            overlays = [ commonOverlay ];
           };
         in
         {
@@ -75,4 +81,3 @@
       );
     };
 }
-
