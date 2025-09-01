@@ -3,12 +3,11 @@
   homebrew = {
     onActivation = {
       upgrade = true;
-      cleanup = "zap" ;
+      cleanup = "zap";
       autoUpdate = true;
     };
     enable = true;
 
-    
     #cleanup = "zap"; # Options: "zap", "uninstall", "none"
 
     # Cask arguments

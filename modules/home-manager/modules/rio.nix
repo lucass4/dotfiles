@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  libs,
-  ...
-}:
-{
+{ pkgs, ... }: {
   programs.rio = {
     enable = true;
     settings = {
@@ -46,18 +40,15 @@
         light-cyan = "#ebbcba";
         light-white = "#e0def4";
       };
-      cursor = {
-        shape = "beam";
-      };
+      cursor = { shape = "beam"; };
       fonts = {
         size = 15;
         family = "Liga SFMono Nerd Font";
-        features = ["+ss01"  "+ss02"  "+ss04"  "+ss05"];
-        # extras = [{ family = "Apple Color Emoji"}];
+        features = [ "+ss01" "+ss02" "+ss04" "+ss05" ];
       };
       shell = {
         program = "${pkgs.zsh}/bin/zsh";
-        args = ["--login"];
+        args = [ "--login" ];
       };
       window = {
         blur = true;

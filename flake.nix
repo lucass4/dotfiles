@@ -57,16 +57,14 @@
 
       systems = [ "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-    in
-    {
+    in {
       # Generate darwinConfigurations from hosts
       darwinConfigurations = lib.mapAttrs (hostName: system:
         darwin.lib.darwinSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = commonModules;
-        }
-      ) hosts;
+        }) hosts;
 
       packages = forAllSystems (system:
         let
@@ -74,10 +72,6 @@
             inherit system;
             overlays = [ commonOverlay ];
           };
-        in
-        {
-          inherit pkgs;
-        }
-      );
+        in { inherit pkgs; });
     };
 }
