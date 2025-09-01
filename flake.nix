@@ -3,11 +3,9 @@
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
-  #  nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-     nixpkgs.url = "github:NixOS/nixpkgs/master";
-
-
+    nixpkgs.url = "github:NixOS/nixpkgs/master";
 
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
