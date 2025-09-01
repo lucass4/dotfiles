@@ -12,7 +12,7 @@
         line-number = "relative";
         auto-save = true;
         cursorline = true;
-        rulers = [ 80 100 ];
+        rulers = [ 120 140 ];
         soft-wrap.enable = true;
 
         indent-guides = {

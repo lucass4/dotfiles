@@ -45,6 +45,14 @@
 
       export SDKMAN_DIR="$HOME/.sdkman"
       [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+     function y() {
+    	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    	yazi "$@" --cwd-file="$tmp"
+    	IFS= read -r -d \'\' cwd < "$tmp"
+    	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+    	rm -f -- "$tmp"
+     }
     '';
 
     # Session variables
@@ -105,8 +113,8 @@
       tf = "terraform";
 
       # Other aliases
-      vim = "nvim";
-      vi = "nvim";
+      vim = "hx";
+      vi = "hx";
       assume = "source /opt/homebrew/bin/assume";
       fz = "fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'";
       findport = "sudo lsof -iTCP -sTCP:LISTEN -n -P | grep";
