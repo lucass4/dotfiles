@@ -1,2 +1,31 @@
 nixpkgs/home-manager/modules/result
 .DS_Store
+
+# Nix-related
+result
+result-*
+.direnv/
+.nix-profile/
+.nix-defexpr/
+.cache/
+.local/share/nix/
+*.drv
+*.drv.sig
+*.nix.d/
+*.nix-shell/
+*.nix-store/
+
+# Editor/OS specific
+*.swp
+*.swo
+*.bak
+*.tmp
+.vscode/
+.idea/
+.env
+.envrc
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
