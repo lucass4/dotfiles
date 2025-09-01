@@ -1,3 +1,3 @@
 { config, lib, pkgs, ... }: {
-  home.packages = with pkgs; [ go gopls delve revive gotools ];
+  home.packages = with pkgs; [ go golines gopls delve revive gotools ];
 }
