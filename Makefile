@@ -25,11 +25,11 @@ build: switchx ## Apply Nix-Darwin configuration (default build)
 
 switch: ## Apply Nix-Darwin configuration with Cachix
 	@echo "Applying Nix configuration for $(HOSTNAME) with Cachix..."
-	cachix watch-exec zmre darwin-rebuild -- switch --flake .#$(HOSTNAME)
+	cachix watch-exec zmre sudo darwin-rebuild -- switch --flake .#$(HOSTNAME)
 
 switchx: ## Apply Nix-Darwin configuration without Cachix
 	@echo "Applying Nix configuration for $(HOSTNAME) without Cachix..."
-	darwin-rebuild switch --flake .#$(HOSTNAME)
+	sudo darwin-rebuild switch --flake .#$(HOSTNAME)
 
 update: switch ## Update flake inputs, Homebrew, and apply Nix configuration
 	@echo "Updating flake inputs and Homebrew..."
@@ -54,7 +54,7 @@ clean-nix: ## Clean up Nix generations and garbage collect
 check-updates: ## Check for Nix and Homebrew updates
 	@echo "Checking for Nix and Homebrew updates..."
 	nix flake update
-	darwin-rebuild build --flake .#$(HOSTNAME) && nix store diff-closures /nix/var/nix/profiles/system result
+	sudo darwin-rebuild build --flake .#$(HOSTNAME) && nix store diff-closures /nix/var/nix/profiles/system result
 	/opt/homebrew/bin/brew update >& /dev/null && /opt/homebrew/bin/brew upgrade -n -g
 	@echo "Update check complete!"
 
