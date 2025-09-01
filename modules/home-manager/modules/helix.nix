@@ -30,7 +30,18 @@
       keys.normal = {
         "space".w = ":w"; # Save with <space>w
         "space".q = ":q"; # Quit with <space>q
-        "space".f = "file_picker"; # Open file picker with <space>f
+        "space".f = [
+          ":sh rm -f /tmp/files2open"
+          ":set mouse false"
+          ":insert-output yazi \"%{buffer_name}\" --chooser-file=/tmp/files2open"
+          ":redraw"
+          ":set mouse true"
+          ":open /tmp/files2open"
+          "select_all"
+          "split_selection_on_newline"
+          "goto_file"
+          ":buffer-close! /tmp/files2open"
+        ];
         "Y" = "yank_to_clipboard";
         "p" = "paste_after";
         "P" = "paste_before";
@@ -80,6 +91,12 @@
           scope = "source.yaml";
           file-types = [ "yaml" "yml" ];
           language-servers = [ "yaml-language-server" ];
+        }
+        {
+          name = "nix";
+          scope = "source.nix";
+          file-types = [ "nix" ];
+          language-servers = [ "nil" ];
         }
       ];
     };
