@@ -52,7 +52,7 @@
       };
       window = {
         blur = true;
-        opacity = 0.94;
+        opacity = 0.85;
       };
     };
   };
