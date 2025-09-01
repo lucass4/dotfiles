@@ -19,12 +19,24 @@
       url = "github:eureka-cpu/helix-themes.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zjstatus = {
+      url = "github:dj95/zjstatus";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: rec {
+  outputs = inputs@{ nixpkgs, home-manager, darwin, zjstatus, ... }: rec {
     # Helper function to create Darwin configurations
     createDarwinConfig = { name, system, username }: darwin.lib.darwinSystem {
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          (final: prev: {
+            zjstatus = zjstatus.packages.${prev.system}.default;
+          })
+        ];
+      };
       specialArgs = { inherit inputs; }; # Pass inputs to modules
       modules = [
         ./modules/darwin
