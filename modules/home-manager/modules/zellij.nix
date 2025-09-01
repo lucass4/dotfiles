@@ -73,15 +73,6 @@
           };
           SwitchToMode "Normal"
         }
-        bind "S" {
-          LaunchOrFocusPlugin "zj-smart-sessions" {
-            floating true
-            move_to_focused_tab true
-            find_command "${pkgs.bash}/bin/bash /Users/${config.home.username}/.config/zellij/find_command"
-            base_path "/Users/${config.home.username}/Developer"
-          };
-          SwitchToMode "Normal"
-        }
       }
       shared_except "tmux" "locked" {
         bind "Ctrl a" { SwitchToMode "Tmux"; }
@@ -141,19 +132,21 @@
         command_kubectx_format   "#[fg=$fg_dim,bg=$bg,italic]{stdout}#[fg=#424554,bg=$bg]::"
         command_kubectx_interval "2"
 
-        command_kubens_command  "${pkgs.kubectx}/bin/kubens -c"
-        command_kubens_format   "#[fg=$fg_dim,bg=$bg]{stdout} "
-        command_kubens_interval "2"
-
-        command_aws_command    "${pkgs.fish}/bin/fish -c 'if test $AWS_PROFILE; echo -n \"#[fg=#928374,bg=#1d2021,italic]aws#[fg=#424554,bg=#1d2021]::#[fg=#928374,bg=#1d2021]$AWS_PROFILE  \"; end'"
+        command_aws_command    "${pkgs.zsh}/bin/zsh -c 'if test $AWS_PROFILE; echo -n \"#[fg=#928374,bg=#1d2021,italic]aws#[fg=#424554,bg=#1d2021]::#[fg=#928374,bg=#1d2021]$AWS_PROFILE  \"; end'"
         command_aws_format     "{stdout}"
         command_aws_interval   "2"
         command_aws_rendermode "dynamic"
 
         datetime          "#[fg=$fg,bg=$bg] {format} "
         datetime_format   "%A, %d %b %Y %H:%M"
-        datetime_timezone "Europe/Berlin"
+        datetime_timezone "America/Vancouver"
       }
+      
+      zj-quit location="file:${pkgs.zj-quit}/bin/zj-quit.wasm" {
+        confirm_key "q"
+        cancel_key "Esc"
+      }
+
 
     }
   '';

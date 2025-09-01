@@ -9,7 +9,6 @@
     bash
     zsh
     reattach-to-user-namespace
-    tmux
     zellij
     
 
@@ -93,7 +92,6 @@
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
-    tmux.enableShellIntegration = true;
     defaultCommand = "fd --type f --hidden --exclude .git";
     fileWidgetCommand = "fd --type f"; # for when ctrl-t is pressed
   };
