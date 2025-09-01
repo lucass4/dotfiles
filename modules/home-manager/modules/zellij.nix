@@ -1,185 +1,37 @@
-{ config, xdg, lib, pkgs, ... }: {
+{ config, xdg, lib, pkgs, ... }:
+{
   programs.zellij = {
     enable = true;
     enableZshIntegration = true;
     settings = {
-      theme = "custom";
-      themes.custom.fg = "#ffffff";
-
+      theme = "catppuccin-mocha";
       default_shell = "${pkgs.zsh}/bin/zsh";
-      scrollback_size = 10000;
-      layout = "compact"; # or "default", "compact", "custom"
-
-      keybinds = [
-        {
-          # Scroll mode
-          key = "[";
-          action = "SwitchToMode:Scroll";
-        }
-        {
-          key = "Ctrl+a";
-          action = [
-            "Write:2"
-            "SwitchToMode:Normal"
-          ];
-        }
-        # Splits
-        {
-          key = "!";
-          action = [
-            "NewPane:Right"
-            "SwitchToMode:Normal"
-          ];
-        }
-        {
-          key = "-";
-          action = [
-            "NewPane:Down"
-            "SwitchToMode:Normal"
-          ];
-        }
-        # New tab
-        {
-          key = "n";
-          action = [
-            "NewTab"
-            "SwitchToMode:Normal"
-          ];
-        }
-        # Kill bindings
-        {
-          key = "x";
-          action = [
-            "CloseFocus"
-            "SwitchToMode:Normal"
-          ];
-        }
-        {
-          key = "k";
-          action = [
-            "CloseTab"
-            "SwitchToMode:Normal"
-          ];
-        }
-        {
-          key = "q";
-          action = "KillSession";
-        }
-        # Reload config
-        {
-          key = "r";
-          action = [
-            "ReloadConfig"
-            "SwitchToMode:Normal"
-          ];
-        }
-        # Layout
-        {
-          key = "t";
-          action = [
-            "NextSwapLayout"
-            "SwitchToMode:Normal"
-          ];
-        }
-        # Fullscreen
-        {
-          key = "z";
-          action = [
-            "ToggleFocusFullscreen"
-            "SwitchToMode:Normal"
-          ];
-        }
-        # Rename tab
-        {
-          key = ",";
-          action = "SwitchToMode:RenameTab";
-        }
-        # Tab navigation
-        {
-          key = "p";
-          action = [
-            "GoToPreviousTab"
-            "SwitchToMode:Normal"
-          ];
-        }
-        # Pane navigation
-        {
-          key = "o";
-          action = "FocusNextPane";
-        }
-        # Layout swap
-        {
-          key = "Space";
-          action = "NextSwapLayout";
-        }
-        # Move focus
-        {
-          key = "Left";
-          action = [
-            "MoveFocus:Left"
-            "SwitchToMode:Normal"
-          ];
-        }
-        {
-          key = "Right";
-          action = [
-            "MoveFocus:Right"
-            "SwitchToMode:Normal"
-          ];
-        }
-        {
-          key = "Down";
-          action = [
-            "MoveFocus:Down"
-            "SwitchToMode:Normal"
-          ];
-        }
-        {
-          key = "Up";
-          action = [
-            "MoveFocus:Up"
-            "SwitchToMode:Normal"
-          ];
-        }
-        {
-          key = "h";
-          action = [
-            "MoveFocus:Left"
-            "SwitchToMode:Normal"
-          ];
-        }
-        {
-          key = "l";
-          action = [
-            "MoveFocus:Right"
-            "SwitchToMode:Normal"
-          ];
-        }
-        {
-          key = "j";
-          action = [
-            "MoveFocus:Down"
-            "SwitchToMode:Normal"
-          ];
-        }
-        {
-          key = "k";
-          action = [
-            "MoveFocus:Up"
-            "SwitchToMode:Normal"
-          ];
-        }
-        # Detach
-        {
-          key = "d";
-          action = "Detach";
-        }
-        # Toggle status bar
-        {
-          key = "s";
-          action = "ToggleStatus";
-        }
-      ];
+      scrollback_size = 1000000;
+      copy_command = "pbcopy";
+      simplified_ui = true;
+      show_startup_tips = false;
+      pane_frames = false;
+      default_mode = "normal";
+      mouse_mode = true;
+      copy_on_select = true;
+      plugins = {
+        "tab-bar" = "zellij:tab-bar";
+        "status-bar" = "zellij:status-bar";
+        "strider" = "zellij:strider";
+        "compact-bar" = "zellij:compact-bar";
+        "session-manager" = "zellij:session-manager";
+        "welcome-screen" = {
+          location = "zellij:session-manager";
+          welcome_screen = true;
+        };
+        filepicker = {
+          location = "zellij:strider";
+          cwd = "/";
+        };
+        configuration = "zellij:configuration";
+        "plugin-manager" = "zellij:plugin-manager";
+        about = "zellij:about";
+      };
     };
   };
 }
