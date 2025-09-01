@@ -1,6 +1,6 @@
 { lib, manual, config, pkgs, ... }: {
   imports = [
-    ./modules/alacritty.nix
+    ./modules/rio.nix
     ./modules/zsh.nix
     ./modules/common.nix
     ./modules/git.nix
