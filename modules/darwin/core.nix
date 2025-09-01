@@ -1,4 +1,4 @@
-{finputs, config, pkgs, ... }: {
+{inputs, config, pkgs, ... }: {
   programs.zsh.enable = true;
   environment = {
     systemPackages = [ pkgs.coreutils ];

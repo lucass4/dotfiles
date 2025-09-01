@@ -1,5 +1,3 @@
-# { inputs, config, pkgs, ... }: # This line is just for context
-
 {
   # Homebrew configuration
   homebrew = {
